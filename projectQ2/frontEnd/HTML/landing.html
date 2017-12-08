@@ -5,6 +5,7 @@
     <title>Landing Page</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="./design.css">
       <!--Import materialize.css-->
     <!-- <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> -->
 
@@ -16,11 +17,22 @@
     <div class="navbar-fixed">
       <nav>
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo">Notes</a>
+          <a href="#" class="right brand-logo">Notes</a>
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-          <ul id="nav-mobile" class="right hide-on-small-and-down">
-            <li class=""><a href="#">Log-In</a></li>
+          <ul id="nav-mobile" class="left hide-on-small-and-down">
             <li class=""><a href="#">Sign-Up</a></li>
+            <li class="">
+              <input placeholder="E-mail" id="email" type="text" class="validate">
+            </li>
+            <li>
+              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            </li>
+            <li>
+              <input id="password" type="password" class="validate" placeholder="password">
+            </li>
+            <li>
+              <a href="#">Log-In</a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -33,17 +45,33 @@
     <!-- parallax section -->
     <div class="parallax-container">
           <div class="parallax"><img src="./photo/microphone2.jpg"></div>
-        </div>
-        <div class="section white">
-          <div class="row container">
-            <h2 class="header">About Me</h2>
-            <p class="grey-text text-darken-3 lighten-3">Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.</p>
-          </div>
-        </div>
+    </div>
+    <div class="section white">
+      <div class="row container">
+          <h2 class="header">About Me</h2>
+          <p class="grey-text text-darken-3 lighten-3">Notes.com is the best note taking app in the world. Come sign up for free to never forget anything again. Add new notes to custom categories, sort them by priority. Even make friends and share notes or look up other people note by tags! Come join us today.</p>
+      </div>
+    </div>
     <div class="parallax-container">
       <div class="parallax"><img src="./photo/microphone3.jpg" ></div>
     </div>
-
+    <div class="section white">
+      <div class="row container">
+          <h2 class="header">Purpose</h2>
+          <p class="grey-text text-darken-3 lighten-3">Our goal here at notes.com is to simpltyify daily life by making it a one stop shop with everything you have to do in custom categories, Even add notes with your mic.
+          Join our ever growing communty of people who like to stay orgainzed and never lose any important information agian. Sign up today.</p>
+      </div>
+    </div>
+    <div class="parallax-container">
+      <div class="parallax"><img src="./photo/microphone4.jpg" ></div>
+    </div>
+    <div class="section white">
+      <div class="row container">
+          <h2 class="header">Purpose</h2>
+          <p class="grey-text text-darken-3 lighten-3">Our goal here at notes.com is to simpltyify daily life by making it a one stop shop with everything you have to do in custom categories, Even add notes with your mic.
+          Join our ever growing communty of people who like to stay orgainzed and never lose any important information agian. Sign up today.</p>
+      </div>
+    </div>
     <!-- footer section -->
     <footer class="page-footer">
           <div class="container">
@@ -68,23 +96,6 @@
             </div>
           </div>
         </footer>
-  <style media="screen">
-      @media only screen and (min-width: 601px){
-    nav a.button-collapse {
-      display: none;
-    }
-    .parallax{
-      height: 100%;
-      width: 100%;
-    }
-    .parallax-container{
-      height:300px;
-    }
-    /*nav .nav-wrapper{
-      background-color: #503636;
-    }*/
-  }
-  </style>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script type="text/javascript" src="main.js">
