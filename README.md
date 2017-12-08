@@ -1,9 +1,66 @@
 # forgetMeNotes
-WAFFLE BOARD
+--ROUTES--
+
+LANDING: Login / About Us(Parallax with GIF or Preview)
+  1. Use Cases Scrolling.
+  2. Gif of website or Iframe Preview.
+  3. Log in fields top.
+  4. Sign up page button.
+SIGNUP: Username, email, DoB, gender, Security.
+  1. Required fields.
+  2. Recovery Question.
+  3. I am not a robot.
+  4. Routes to profile if successful
+PROFILE: Photo, About, Pinned, Recent, Settings.
+  1. Update your photo.
+  2. Update your About Me.
+  3. Add / Remove pinned items.
+  4. Hide your recent notes.
+  5. Settings page button.
+MAINBOARD: Categories, Notes inside, New Category, New Note.
+  1. Add new category.
+  2. Sort categories.
+  3. Add new note.
+  4. Sort notes.
+  5. Set note priority and time schedule.
+  6. Time expiring soon.
+  7. Set note as pinned item.
+ROUTES:
+  1. '/' GET "Landing Page"
+  2. '/SignIn' POST "Sign in request"
+  3. '/SignUp' POST "New user request"
+  4. '/DashBoard' GET "Shows all categories and notes"
+  5. '/n/note' POST "Add new note to user"
+  6. '/n/category' POST "Add new category to user"
+  7. '/e/note' GET "Gets note from user"
+  8. '/e/category' GET "Gets category from user"
+  9. '/e/comments' GET "Gets comments on a note"
+  10. '/e/category/notes' GET "Gets all notes for a category for a user"
+  11. '/e/categories' GET "Gets all categories for a user."
+  12. '/profile' GET "Gets users profile page"
+        SIGNIN
+UUID|PASSWORD|SALT|EMAIL
+        NOTES
+NOTEID|UUID|NOTES|TITLE|CATEGORY|PRIORITY|REMINDER|RATING|PUBLIC
+        CATEGORY
+UUID|CATID|CATNAME|PUBLIC
+        USERS
+UUID|USERNAME|EMAIL|FRIENDS
+        COMMENTS
+ID|NOTEID|UUID|MSG|UP|DOWN
+
+
+
+--WAFFLE BOARD--
 https://waffle.io/brian-kracha/forgetMeNotes
-  SCHEMA
+
+
+--  SCHEMA--
 https://gstudents.slack.com/files/U726PFPGU/F8BCQT76D/screen_shot_2017-12-07_at_4.23.57_pm.png
-Style Guide
+
+--Style Guide--
+
+
 MATERIALIZE WIREFRAME--
 For accessing categories-- materialize carousel
 For accessing notes -- materialize Collapsible
