@@ -41,10 +41,10 @@
 #signup .form {
   margin: 0 auto;
 }
-input#email.validates{
+input#email.validate{
   margin-left: 25px
 }
-input#password.validates{
+input#password.validate{
   margin-left: 25px;
 }
   /*$color1: rgba(185, 18, 40, 1);
