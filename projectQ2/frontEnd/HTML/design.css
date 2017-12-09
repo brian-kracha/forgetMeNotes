@@ -4,6 +4,9 @@
     display: none;
 
   }*/
+  a.dropdown-button.btn.questionDropdown{
+    font-size: 12px;
+  }
   .parallax{
     height: 100%;
     width: 100%;
