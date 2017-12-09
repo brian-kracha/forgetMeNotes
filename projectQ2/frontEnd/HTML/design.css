@@ -1,9 +1,9 @@
 
-    @media only screen and (min-width: 601px){
+    /*@media only screen and (min-width: 601px){
   nav a.button-collapse {
     display: none;
 
-  }
+  }*/
   .parallax{
     height: 100%;
     width: 100%;
@@ -11,7 +11,42 @@
   .parallax-container{
     height:300px;
   }
-  /*nav .nav-wrapper{
-    background-color: #503636;
-  }*/
+  nav .nav-wrapper{
+    background-color:rgba(185, 18, 40, 1);
+  }
+  .section{
+    background: rgba(211, 212, 217, 1);
+  }
+  footer.page-footer{
+    background: rgba(92, 97, 133, 1);
+  }
+  body{
+    font-family: 'lato';
+    font-size: 20px;
+  }
+  .dropdown-button{
+    width: 280px;
+  }
+  #signup  {
+  display: flex;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#signup .form {
+  margin: 0 auto;
+}
+input#email.validates{
+  margin-left: 25px
+}
+input#password.validates{
+  margin-left: 25px;
+}
+  /*$color1: rgba(185, 18, 40, 1);
+$color2: rgba(211, 212, 217, 1);
+$color3: rgba(221, 255, 217, 1);
+$color4: rgba(236, 200, 174, 1);
+$color5: rgba(92, 97, 133, 1);*/
 }
