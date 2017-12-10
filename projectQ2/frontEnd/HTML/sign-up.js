@@ -19,8 +19,8 @@ $(document).ready(function() {
   signup.submit(function(event) {
     event.preventDefault();
     const username = $('#Username').val().trim();
-    const email = $('#Email').val().trim();
-    const password = $('#Password').val();
+    const email = $('#EmailSignup').val().trim();
+    const password = $('#PasswordSignup').val();
     const confirmPassword = $('#ConfirmPassword').val();
     const DOB = $('#DOB').val();
     const answer = $('#Answer').val().trim()
@@ -36,6 +36,7 @@ $(document).ready(function() {
     if(!answer) {
       return Materialize.toast('please asnwer the security Question', 3000);
     }
+    console.log(password)
     console.log(username, email, password, confirmPassword, DOB, answer, securityQuestion);
 
     // const options = {
