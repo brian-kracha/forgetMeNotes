@@ -118,7 +118,7 @@ return colors
 var array= document.getElementsByClassName('final_span');
 textColorChange(array);
 }
-      function upgrade() {
+      upgrade()=> {
           displayMessageGrowl('browser not compatible - upgrade to latest chrome', 'error');
       }
 
