@@ -8,13 +8,13 @@ app.use(bodyParser.urlencoded({extened: false}))
 app.use(bodyParser.json())
 
 
-app.post('/new-signup', => (req, res, next){
+app.post('/new-signup', function (req, res, next){
   let data = req.query
-  data.username
-  data.email
-  data.Dob
-  data.secQues
-  data.secAns
+  console.log(data.username)
+  console.log(data.email)
+  // data.Dob
+  // data.secQues
+  // data.secAns
 })
 
 
