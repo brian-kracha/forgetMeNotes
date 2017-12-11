@@ -135,15 +135,13 @@ textColorChange(array);
           reset();
           document.getElementById('record_button').innerHTML = 'Click to Record';
           console.log(event.target);
-          // if(event.target).on('click',function(audio){
-          //
-          // })
+
       }
 
       function toggleStartStop() {
           if (recognizing) {
               toggleStop();
-              // document.getElementById('analyser').style.display = 'none';
+            
           } else {
               final_transcript = '';
               recognition.lang = 'en-US';
