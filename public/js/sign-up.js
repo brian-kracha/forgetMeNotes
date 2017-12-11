@@ -36,24 +36,23 @@ $(document).ready(function() {
     if(!answer) {
       return Materialize.toast('please asnwer the security Question', 3000);
     }
-    console.log(password)
     console.log(username, email, password, confirmPassword, DOB, answer, securityQuestion);
+    securityQuestion = securityQuestion.replace(/[\t\n]+/g,' ')
+    const options = {
+      contentType: 'application/json',
+      data: JSON.stringify({username, email, password, DOB, securityQuestion,answer}),
+      dataType: 'json',
+      type: 'POST',
+      url: '/new-signup'
+    }
 
-    // const options = {
-    //   contentType: 'application/json',
-    //   data: JSON.stringify({username, email, password, DOB, securityQuestion,answer}),
-    //   dataType: 'json',
-    //   type: 'POST',
-    //   url: '/users'
-    // }
-    //
-    // $.ajax(options)
-    //   .done(() => {
-    //     window.location.href = '/dashboard.html';
-    //   })
-    //   .fail(($xhr) => {
-    //     Materialize.toast($xhr.responseText, 3000);
-    //   });
+    $.ajax(options)
+      .done(() => {
+        window.location.href = '/new-signup';
+      })
+      .fail(($xhr) => {
+        Materialize.toast($xhr.responseText, 3000);
+      })
   })
   foreignCountry.click(function() {
     securityQuestion = foreignCountry[0].innerText

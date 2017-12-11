@@ -13,22 +13,23 @@ $(document).ready(function() {
     }
     console.log(email, password);
 
-    // const options = {
-    //   contentType: 'application/json',
-    //   data: JSON.stringify({email, password}),
-    //   dataType: 'json',
-    //   type: 'POST',
-    //   url: '/token'
-    // };
-    //
-    // $.ajax(options)
-    //   .done(() => {
-    //     window.location.href = '/dashboard.html';
-    //   })
-    //   .fail(($xhr) => {
-    //     Materialize.toast($xhr.responseText, 3000);
-    //   });
+    const options = {
+      contentType: 'application/json',
+      data: JSON.stringify({email, password}),
+      dataType: 'json',
+      type: 'POST',
+      url: '/login'
+    };
+
+    $.ajax(options)
+      .done(() => {
+        window.location.href = '/login';
+      })
+      .fail(($xhr) => {
+        Materialize.toast($xhr.responseText, 3000);
+      });
   })
+})
   $('#log-In').click(function(event) {
     console.log('here');
     event.preventDefault();
@@ -41,20 +42,19 @@ $(document).ready(function() {
       return Materialize.toast('password field is empty', 3000);
     }
     console.log(email, password);
-    // const options = {
-    //   contentType: 'application/json',
-    //   data: JSON.stringify({email, password}),
-    //   dataType: 'json',
-    //   type: 'POST',
-    //   url: '/token'
-    // };
-    //
-    // $.ajax(options)
-    //   .done(() => {
-    //     window.location.href = '/dashboard.html';
-    //   })
-    //   .fail(($xhr) => {
-    //     Materialize.toast($xhr.responseText, 3000);
-    //   });
+    const options = {
+      contentType: 'application/json',
+      data: JSON.stringify({email, password}),
+      dataType: 'json',
+      type: 'POST',
+      url: '/login'
+    };
+
+    $.ajax(options)
+      .done(() => {
+        window.location.href = '/login';
+      })
+      .fail(($xhr) => {
+        Materialize.toast($xhr.responseText, 3000);
+      });
   })
-})
