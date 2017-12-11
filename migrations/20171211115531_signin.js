@@ -4,6 +4,7 @@ exports.up = function(knex, Promise) {
     table.increment();
     table.string('email').notNullable().default("")
     table.string('password').notNullable()
+    table.string('salt').notNullable()
   })
 };
 
