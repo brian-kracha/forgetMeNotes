@@ -4,8 +4,8 @@
     display: none;
 
   }*/
-  .divider{
-    height: 100%
+  .dividers{
+    height: 100vh;
   }
   a.dropdown-button.btn.questionDropdown{
     font-size: 12px;
@@ -51,8 +51,10 @@ input#password.validate{
   margin-left: 25px;
 }
 .profile{
-  margin-left: 35px;
+  /*margin-left: 35px;*/
   border-radius: 50%;
+  width: 100px;
+  height: 100px
 }
 .profileMobile{
   height: 150px;
@@ -87,10 +89,6 @@ a.logOut{
   /*background: rgba(236, 200, 174, 1);*/
   height: 100%;
 }
-#modaleffect{
-  z-index: 1;
-}
-
   /*$color1: rgba(185, 18, 40, 1);
 $color2: rgba(211, 212, 217, 1);
 $color3: rgba(221, 255, 217, 1);
