@@ -7,7 +7,8 @@ $(document).ready(function(event) {
       dismissible: true, // Modal can be dismissed by clicking outside of the modal
       opacity: 0, // Opacity of modal background
       ready: function() {
-        $('.comment').focus()
+        $('.modal-overlay')[0].style.zIndex = "1"
+        // $('.comment').focus()
       },
       complete: function() {
         comment = ($('.comment').val())
