@@ -10,10 +10,11 @@ app.use(bodyParser.urlencoded({extened: false}))
 app.use(bodyParser.json())
 
 app.use(express.static(path.join("public")));
-
+app.get('/',(req,res,next)=>{
+  res.redirect('landing.html')
+})
 app.post('/login', function (req, res, next){
   let data = req.body
-
   console.log(data.password)
   console.log(data.email)
 })
@@ -27,6 +28,15 @@ app.post('/new-signup', function (req, res, next){
   console.log(data.DOB)
   console.log(data.securityQuestion)
   console.log(data.answer)
+  return knex('signup')
+  .inerst({
+    username: data.username,
+    email: data.email,
+    password: data.password,
+    DOB: data.DOB,
+    question: data.securityQuestion,
+    answer: data.answer
+  })
 })
 
 app.use(function(req, res, next){

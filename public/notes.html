@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <meta charset="utf-8">
-    <title>Landing Page</title>
+    <title>Notes Page</title>
     <link rel="stylesheet" href="./css/noteStyle.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
@@ -54,36 +55,38 @@
            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Fourth
              <span class="badge"><i class='material-icons chatBubble'>chat_bubble_outline</i>4<i class='material-icons icoRed'>fiber_manual_record</i></span>
            </div>
-           <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</span></div>
-         </li>
-         <li>
-           <div class="collapsible-header"><i class="material-icons">place</i>Fifth
-             <span class="badge"><i class='material-icons chatBubble'>chat_bubble_outline</i>2<i class='material-icons icoYellow'>fiber_manual_record</i></span>
-           </div>
-           <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-         </li>
-         <li>
-           <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-           <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-         </li>
-         <li>
-           <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-           <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-         </li>
-         <li>
-           <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-           <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-         </li>
-         <li>
-           <div class="collapsible-header"><i class="material-icons">filter_drama</i>Fourth</div>
-           <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-         </li>
          <li>
            <div class="collapsible-header"><i class="material-icons">place</i>Fifth</div>
            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
          </li>
+         <li>
+
+           </div>
+
+           </div>
        </ul>
-     </div>
+       <a class="waves-effect waves-light btn modal-trigger red btn-floating right" href="#modal1"><i class="material-icons">add</i></a>
+
+  <!-- Modal Structure -->
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4>New Note</h4>
+
+          <button class="btn btn-warning" id="record_button" onclick="toggleStartStop()"><i class="material-icons">mic</i></button>
+          <div id="speechContainer">
+
+
+              <span class="inputs interim" id="interim_span" style='color:black;font-size:20px; font-family:cursive'></span>
+              <span class="inputs final" id="final_span" style='color:black;font-size:20px; font-family:cursive ' ></span>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+      </div>
+
+     <br><br><br><br><br>
     <!-- footer section -->
     <footer class="page-footer" <footer class="page-footer">
         <div class="container">
@@ -108,9 +111,12 @@
           </div>
         </div>
       </footer>
+
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <script type="text/javascript" src="./js/notes.js">
+    <script type="text/javascript" src="./js/notes.js"></script>
+    <script type="text/javascript" src="./js/speech.js">
+
     </script>
   </body>
 </html>
