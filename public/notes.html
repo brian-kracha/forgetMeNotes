@@ -70,7 +70,10 @@
   <!-- Modal Structure -->
       <div id="modal1" class="modal">
         <div class="modal-content">
-          <h4>New Note</h4>
+          <div class="input-field col s6">
+            <input placeholder="title" class="title" type="text" class="validate">
+            <label for="title">Title</label>
+          </div>
 
           <button class="btn btn-warning" id="record_button" onclick="toggleStartStop()"><i class="material-icons">mic</i></button>
           <div id="speechContainer">
@@ -82,7 +85,36 @@
           </div>
         </div>
         <div class="modal-footer">
-          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+          <span class="left">
+            <input name="priority" type="radio" id="1" />
+            <label for="1">High</label>
+
+            <input name="priority" type="radio" id="2" />
+            <label for="2">Medium</label>
+
+            <input name="priority" type="radio" id="3" />
+            <label for="3">Low</label>
+          </span>
+          <span>
+            <a class='dropdown-button btn' id="Pin" href='#' data-activates='dropdown1'>Pin</a>
+              <!-- Dropdown Structure -->
+              <ul id='dropdown1' class='dropdown-content'>
+                <li class="public"><a href="#!">public</a></li>
+                <li class="private"><a href="#!">private</a></li>
+              </ul>
+          </span>
+          <div class="row">
+            <div class="input-field col l4 s6 m6">
+              <i class="material-icons prefix">date_range</i>
+              <input type="text" class="datepicker" placeholder="Reminder" id="Reminder">
+            </div>
+            <div class="input-field col l4 s6 m6">
+              <i class="material-icons prefix">account_circle</i>
+              <input id="Tag" type="text" class="validate">
+              <label for="Tag">Tag</label>
+            </div>
+          </div>
+          <a href="#agree" class="modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
         </div>
       </div>
 
