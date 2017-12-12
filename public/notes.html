@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>Notes Page</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="./css/noteStyle.css">
+      <!--Import materialize.css-->
+    <!-- <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> -->
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+  <body>
+    <!--navbar section  -->
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">Notes</a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul id="nav-mobile" class="right hide-on-small-and-down">
+            <li class="userProfile"><a href="#">Sean</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <ul class="side-nav" id="mobile-demo">
+      <li class=""><a href="#">Log-In</a></li>
+      <li class=""><a href="#">Sign-Up</a></li>
+    </ul>
+    <div class="center" id="accordion">
+      <ul class="collapsible">
+         <li>
+           <div class="collapsible-header"><i class="material-icons">filter_drama</i>First
+             <span class="badge"><i class='material-icons chatBubble'>chat_bubble_outline</i>0<i class='material-icons icoGreen'>fiber_manual_record</i></span>
+           </div>
+           <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+         </li>
+         <li>
+           <div class="collapsible-header"><i class='material-icons'>place</i>Second
+             <span class="badge"><i class='material-icons chatBubble'>chat_bubble_outline</i>1<i class='material-icons icoGreen'>fiber_manual_record</i></span>
+           </div>
+           <div class="collapsible-body"><i class='material-icons chatBubble'>chat_bubble_outline</i>9<span>Lorem ipsum dolor sit amet.</span></div>
+         </li>
+         <li>
+           <div class="collapsible-header"><i class="material-icons">whatshot</i>Third
+             <span class="badge"><i class='material-icons chatBubble'>chat_bubble_outline</i>0<i class='material-icons icoYellow'>fiber_manual_record</i></span>
+           </div>
+           <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+         </li>
+         <li>
+           <div class="collapsible-header"><i class="material-icons">filter_drama</i>Fourth
+             <span class="badge"><i class='material-icons chatBubble'>chat_bubble_outline</i>4<i class='material-icons icoRed'>fiber_manual_record</i></span>
+           </div>
+         <li>
+           <div class="collapsible-header"><i class="material-icons">place</i>Fifth</div>
+           <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+         </li>
+         <li>
+
+           </div>
+
+           </div>
+       </ul>
+       <a class="waves-effect waves-light btn modal-trigger red btn-floating right" href="#modal1"><i class="material-icons">add</i></a>
+
+  <!-- Modal Structure -->
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <div class="input-field col s6">
+            <input placeholder="title" class="title" type="text" class="validate">
+            <label for="title">Title</label>
+          </div>
+
+          <button class="btn btn-warning" id="record_button" onclick="toggleStartStop()"><i class="material-icons">mic</i></button>
+          <div id="speechContainer">
+
+
+            <input class="inputs interim"  id="interim_span" type="text">
+            <input class="inputs final" id="final_span"  type="text">
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <span class="left">
+            <input name="priority" type="radio" id="1" />
+            <label for="1">High</label>
+
+            <input name="priority" type="radio" id="2" />
+            <label for="2">Medium</label>
+
+            <input name="priority" type="radio" id="3" />
+            <label for="3">Low</label>
+          </span>
+          <span>
+            <a class='dropdown-button btn' id="Pin" href='#' data-activates='dropdown1'>Pin</a>
+              <!-- Dropdown Structure -->
+              <ul id='dropdown1' class='dropdown-content'>
+                <li class="public"><a href="#!">public</a></li>
+                <li class="private"><a href="#!">private</a></li>
+              </ul>
+          </span>
+          <div class="row">
+            <div class="input-field col l4 s6 m6">
+              <i class="material-icons prefix">date_range</i>
+              <input type="text" class="datepicker" placeholder="Reminder" id="Reminder">
+            </div>
+            <div class="input-field col l4 s6 m6">
+              <i class="material-icons prefix">account_circle</i>
+              <input id="Tag" type="text" class="validate">
+              <label for="Tag">Tag</label>
+            </div>
+          </div>
+          <a href="#agree" class="modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
+        </div>
+      </div>
+
+     <br><br><br><br><br>
+    <!-- footer section -->
+    <footer class="page-footer" <footer class="page-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="white-text">Footer Content</h5>
+              <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+              <h5 class="white-text">Links</h5>
+              <ul>
+                <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+              © 2014 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+          </div>
+        </div>
+      </footer>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="./js/notes.js"></script>
+    <script type="text/javascript" src="./js/speech.js">
+
+    </script>
+  </body>
+</html>

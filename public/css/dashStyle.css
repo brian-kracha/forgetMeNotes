@@ -1,0 +1,61 @@
+nav .nav-wrapper{
+  background-color: rgba(185, 18, 40, 1);
+}
+
+.waves-effect {
+  margin: auto;
+}
+
+body {
+  background: rgba(211, 212, 217, 1);
+  font-family: 'Roboto Slab', serif;
+  font-size: 20px;
+}
+
+footer.page-footer {
+  background-color: rgba(92, 97, 133, 1);
+}
+
+.carousel .carousel-item {
+  width:250px !important;
+  height: 375px !important;
+}
+
+footer.page-footer {
+  position:relative;
+  bottom:0;
+  left:0;
+  width:100%;
+}
+
+@media only screen and (min-width: 601px){
+  footer.page-footer {
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+  }
+  nav a.button-collapse {
+    display: none;
+  }
+
+  .carousel .carousel-item {
+    width:300px !important;
+    height: 375px !important;
+  }
+
+  .parallax {
+    height: 100%;
+    width: 100%;
+  }
+
+  .parallax-container {
+    height:300px;
+  }
+  .brand-logo {
+    margin-left: 25px;
+  }
+  .userProfile {
+    margin-right: 25px;
+  }
+}

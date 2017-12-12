@@ -1,0 +1,28 @@
+{
+  "name": "forgetmenotes",
+  "version": "1.0.0",
+  "description": "Notes Application",
+  "main": "index.js",
+  "scripts": {
+    "knex": "knex",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brian-kracha/forgetMeNotes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brian-kracha/forgetMeNotes/issues"
+  },
+  "homepage": "https://github.com/brian-kracha/forgetMeNotes#readme",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.0",
+    "knex": "^0.14.2",
+    "pg": "^7.4.0"
+  }
+}
