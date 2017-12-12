@@ -70,6 +70,16 @@ app.use(function(req, res, next){
   res.status(404).json( { error: '404 bad stuff' } )
 })
 
+app.post('/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/');
+});
+
+app.delete('/logout',(req,res,next){
+  let data = req.body
+  return knex('logout')
+
+})
 app.listen(PORT, function(){
   console.log('Server starting at localhost:' + PORT)
 })
