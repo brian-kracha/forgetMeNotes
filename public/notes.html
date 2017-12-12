@@ -65,8 +65,9 @@
 
            </div>
        </ul>
-       <a class="waves-effect waves-light btn modal-trigger red btn-floating right" href="#modal1"><i class="material-icons">add</i></a>
-
+       <div class='addButton'>
+         <a class="waves-effect waves-light btn modal-trigger red btn-floating right" href="#modal1"><i class="material-icons">add</i></a>
+      </div>
   <!-- Modal Structure -->
       <div id="modal1" class="modal">
         <div class="modal-content">
@@ -76,13 +77,15 @@
           <div id="speechContainer">
 
 
-            <input class="inputs interim"  id="interim_span" type="text">
-            <input class="inputs final" id="final_span"  type="text">
+              <!-- <span class="inputs interim" id="interim_span" style='color:black;font-size:20px; font-family:cursive'></span>
+              <span class="inputs final" id="final_span" style='color:black;font-size:20px; font-family:cursive ' ></span> -->
+              <input class="inputs interim"  id="interim_span" type="text">
+              <input class="inputs final" id="final_span"  type="text">
 
           </div>
         </div>
         <div class="modal-footer">
-          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
         </div>
       </div>
 
