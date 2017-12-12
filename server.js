@@ -67,13 +67,6 @@ app.post('/new-signup', function (req, res, next){
       res.send(newUser);
     })
   })
-  //
-  // console.log(data.username)
-  // console.log(data.password)
-  // console.log(data.email)
-  // console.log(data.DOB)
-  // console.log(data.securityQuestion)
-  // console.log(data.answer)
   .catch(function(err){
     next(err);
   })
