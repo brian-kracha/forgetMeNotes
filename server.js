@@ -26,15 +26,14 @@ app.post('/login', function (req, res, next){
    .first()
    .then(function(user) {
     if(!user) {
-      res.status(401).send("Email or password does not match")
+      res.status(401).send("Email doesnt exist")
     }
-    if(bcrypt.compare(data.password, user.password)) {
+    if(bcrypt.compareSync(data.password, user.password)) {
       console.log('matched')
       res.status(200).send({message: "logged in"})
     }
     else{
-      console.log('not matched')
-      console.log(user.password)
+      res.status(404).send("password doesn't match")
     }
   })
   .catch(function(err){
