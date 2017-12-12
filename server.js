@@ -36,6 +36,11 @@ app.post('/login', function (req, res, next){
       var token = jwt.sign({ id: user.id }, 'A4e2n84E0OpF3wW21')
       res.status(200).send({message: "logged in", token: token})
     }
+    }
+    if(bcrypt.compareSync(data.password, user.password)) {
+      var token = jwt.sign({ id: user.id }, 'A4e2n84E0OpF3wW21')
+      res.status(200).send({message: "logged in", token: token})
+    }
     else{
       res.status(404).send("password doesn't match")
     }
@@ -75,10 +80,35 @@ app.post('/new-signup', function (req, res, next){
     next(err);
   })
 })
-app.post('/notes', function(req, res, next){
-  cat
-
-})
+// app.post('/notes', function(req, res, next){
+//   let data = req.body
+//   .insert({
+//     username: data.username,
+//     email: data.email,
+//     password: hashedpassword,
+//     DOB: data.DOB,
+//     question: data.securityQuestion,
+//     answer: data.answer
+//   }, '*')
+//   .then(function(user) {
+//     let newUser = {
+//       id: user[0].id,
+//       username: user[0].username,
+//       email: user[0].email,
+//       password: user[0].password,
+//       DOB: user[0].DOB,
+//       question: user[0].question,
+//       answer: user[0].answer
+//     }
+//     res.send(newUser);
+//   knex('notes').instert()
+// })
+// app.get('/notes',(req,res,next)=>{
+//
+// app.post('/notes', function(req, res, next){
+//   cat
+//
+// })
 app.get('/categories',(req,res,next)=>{
   let cookie = req.cookies
   var decoded = jwt.verify(cookie.jwt, 'A4e2n84E0OpF3wW21', function(err, decoded) {
