@@ -2,17 +2,17 @@
 
 module.exports = {
   development: {
-    client:'pg',
-    connection:'postgres://localhost/notesdb_dev'
+    client: 'pg',
+    connection: 'postgres://localhost/notesdb_dev'
   },
 
   test: {
-    client:'pg',
-    connection : 'postgres://localhost/notesdb_test'
+    client: 'pg',
+    connection: 'postgres://localhost/notesdb_test'
   },
 
   production: {
-    client:'pg',
-    connection : process.env.DATABASE_URL
+    client: 'pg',
+    connection: process.env.DATABASE_URL
   }
 };

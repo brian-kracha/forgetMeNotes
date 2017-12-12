@@ -1,6 +1,6 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('signup', table => {
-    table.increment();
+    table.increments();
     table.string('username').notNullable().default("")
     table.string('email').notNullable().default("")
     table.string('password').notNullable()

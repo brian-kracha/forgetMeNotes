@@ -1,7 +1,7 @@
 
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('categories', table => {
-    table.increment();
+    table.increments();
     table.string('title').notNullable().default("")
     table.string('summary').notNullable()
     table.string('image_url').notNullable()
