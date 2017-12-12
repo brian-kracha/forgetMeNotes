@@ -18,9 +18,11 @@
   },
   "homepage": "https://github.com/brian-kracha/forgetMeNotes#readme",
   "dependencies": {
+    "axios": "^0.17.1",
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.0",
     "knex": "^0.14.2",
     "pg": "^7.4.0"
   }

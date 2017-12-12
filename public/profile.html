@@ -60,8 +60,14 @@
           <div class="background">
             <img src="./photo/background.jpeg" class="backgroundImg">
           </div>
-          <a href="#"><img src="./photo/profile.png" alt="profilepage" class="profileMobile"></img></a>
-          <a href="#"><span class="blue-text name phoneUser">Brian Kracha</span></a>
+          <a href="#"><img src="./photo/profile.png" alt="profilepage" class="profileMobile" id="img-preview"></img></a>
+
+          <a href="#">
+            <label class="file-upload-container" for="file-upload">
+       <input id="file-upload" type="file" ">
+       Select an Image
+     </label>
+     <span class="blue-text name phoneUser">Brian Kracha</span></a>
           <div class="bioPhone">Galvanize Student learning a web development immersive program</div>
           <span class="blue-text email">brian.kracha@gmail.com</span>
           <a href="#!"><a href="#"><img class="linkedin" src="./photo/linkedin.png"></a>
@@ -138,7 +144,10 @@
           </footer>
       <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-      <script type="text/javascript" src="./js/profile.js">
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.min.js'></script>
+      <script type="text/javascript" src="./js/profile.js"></script>
+      <script type="text/javascript" src="./cloudinary/api.js">
+
       </script>
   </body>
 </html>
