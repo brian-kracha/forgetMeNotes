@@ -31,11 +31,19 @@ app.post('/login', function (req, res, next){
    .then(function(user) {
     if(!user) {
       res.status(401).send("Email doesnt exist")
+<<<<<<< HEAD
     }
     if(bcrypt.compareSync(data.password, user.password)) {
       var token = jwt.sign({ id: user.id }, 'A4e2n84E0OpF3wW21')
       res.status(200).send({message: "logged in", token: token})
     }
+=======
+    }
+    if(bcrypt.compareSync(data.password, user.password)) {
+      var token = jwt.sign({ id: user.id }, 'A4e2n84E0OpF3wW21')
+      res.status(200).send({message: "logged in", token: token})
+    }
+>>>>>>> 222d13ddc3cd21f1052359cde28c5a37584dc072
     else{
       res.status(404).send("password doesn't match")
     }
@@ -75,6 +83,7 @@ app.post('/new-signup', function (req, res, next){
     next(err);
   })
 })
+<<<<<<< HEAD
 // app.post('/notes', function(req, res, next){
 //   let data = req.body
 //   .insert({
@@ -99,6 +108,13 @@ app.post('/new-signup', function (req, res, next){
 //   knex('notes').instert()
 // })
 app.get('/notes',(req,res,next)=>{
+=======
+app.post('/notes', function(req, res, next){
+  cat
+
+})
+app.get('/categories',(req,res,next)=>{
+>>>>>>> 222d13ddc3cd21f1052359cde28c5a37584dc072
   let cookie = req.cookies
   var decoded = jwt.verify(cookie.jwt, 'A4e2n84E0OpF3wW21', function(err, decoded) {
  if(err){

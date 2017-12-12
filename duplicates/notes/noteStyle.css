@@ -1,0 +1,86 @@
+nav .nav-wrapper{
+  background-color: rgba(185, 18, 40, 1);
+}
+
+body {
+  background: rgba(211, 212, 217, 1);
+  font-family: 'Roboto Slab', serif;
+  font-size: 20px;
+}
+
+footer.page-footer {
+  background-color: rgba(92, 97, 133, 1);
+}
+
+.page-footer {
+  position:relative;
+  bottom:0;
+  left:0;
+  width:100%
+}
+i.material-icons.chatBubble {
+  font-size: 2rem;
+}
+.chatBubble {
+  position: relative;
+  top: 51%;
+  left: 35%;
+}
+.icoGreen {
+  position: relative;
+  color: green;
+  left: 10%;
+  top: 25%;
+}
+.icoRed {
+  position: relative;
+  color: red;
+  left: 10%;
+  top: 25%;
+}
+.icoYellow {
+  position: relative;
+  color: yellow;
+  left: 10%;
+  top: 25%;
+}
+
+@media only screen and (min-width: 601px){
+  #accordion {
+    position: fixed;
+    height: 55%;
+    overflow-x: auto;
+    width: 60%;
+    margin-top: 2%;
+    margin-left: 20%;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+  .page-footer {
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%
+  }
+
+  nav a.button-collapse {
+    display: none;
+  }
+  .parallax {
+    height: 100%;
+    width: 100%;
+  }
+
+  .parallax-container {
+    height:300px;
+  }
+  .brand-logo {
+    margin-left: 25px;
+  }
+  .userProfile {
+    margin-right: 25px;
+  }
+}

@@ -22,7 +22,13 @@ $(document).ready(function() {
     };
 
     $.ajax(options)
+<<<<<<< HEAD
       .done(() => {
+=======
+      .done((response) => {
+        let cookie = `jwt=${response.token}`
+        document.cookie = cookie;
+>>>>>>> 222d13ddc3cd21f1052359cde28c5a37584dc072
         window.location.href = '/dashboard.html';
       })
       .fail(($xhr) => {
