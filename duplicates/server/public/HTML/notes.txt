@@ -1,0 +1,27 @@
+const router = require ('router')
+const bcrypt = require ('bcrypt')
+
+//getting all notes from particular category
+router.get('/categories/:id/notes',(req,res,next)=>{
+  let id = req.params.id
+  return knex('notes')
+  .where('category_id',id)
+  .orderBy('title')
+  .then(function(notes){
+    res.send(notes)
+  })
+  .catch(function(err){
+    next(err)
+  })
+})
+
+//adding notes
+router.post('/catogories/:id/notes',(req,res,next)=>{
+  let id = req.params.id
+  return knex('notes')
+  .insert({
+    title : req.body.title,
+    note : req.body.note,
+    
+  })
+})
