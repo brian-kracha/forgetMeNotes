@@ -1,4 +1,4 @@
-const request = require('supertest')
+const app = require('../');
 
 describe('The fallthrough and root route for server', () => {
 
