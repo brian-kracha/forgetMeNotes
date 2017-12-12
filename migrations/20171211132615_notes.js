@@ -13,6 +13,7 @@ exports.up = function(knex, Promise) {
     table.integer('dislike').default(0)
     table.boolean('pin')
     table.integer('reminder').default(0)
+    table.string('tag')
   })
 };
 
