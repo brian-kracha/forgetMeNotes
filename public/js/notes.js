@@ -2,7 +2,6 @@ $(document).ready(function(){
   var textOnNotes= ""
   var priority = "";
   $('.collapsible').collapsible();
-<<<<<<< HEAD
   $('.modal').modal();
 
   function addNote (title,content, priority, comments) {
@@ -16,7 +15,6 @@ $(document).ready(function(){
             <h2>${Title}</h2>
             </div>`
   }
-=======
   $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 200, // Creates a dropdown of 50 years to control year,
@@ -71,5 +69,4 @@ $(document).ready(function(){
         })
       }
   });
->>>>>>> f1eddb349dcfdf2e5a3aa139950692dcdc93cbff
 });
