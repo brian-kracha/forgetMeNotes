@@ -1,4 +1,7 @@
 'use strict';
+if (process.env.NODE_ENV !== 'development') {
+  require('dotenv').config();
+}
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
@@ -10,9 +13,6 @@ const knex = require('knex')(knexConfig);
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const cookieParser = require('cookie-parser')
-// if (process.env.NODE_ENV !== 'production') {
-//   require('dotenv').config();
-// }
 
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({extened: false}))
