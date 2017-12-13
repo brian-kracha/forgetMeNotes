@@ -17,8 +17,8 @@ footer.page-footer {
   height: 140px;
   width: 150px;
   position: fixed;
-  right: 5px;
-  bottom: 65;
+  right: 5%;
+  bottom: 50%;
 }
 
 .page-footer {
@@ -97,4 +97,3 @@ i.material-icons.chatBubble {
   .userProfile {
     margin-right: 25px;
   }
-}

@@ -31,10 +31,10 @@
       <li class=""><a href="#">Sign-Up</a></li>
     </ul>
 
-    <div class="carousel" data-indicators="true">
+    <div class="carousel categories" data-indicators="true">
        <div class="carousel-item red white-text" href="#one!">
-         <h2>First Panel</h2>
-       </div>
+            <h2>First Panel</h2>
+      </div>
        <div class="carousel-item amber white-text" href="#two!">
          <h2>Second Panel</h2>
        </div>
@@ -46,8 +46,25 @@
        </div>
      </div>
      <div class="center">
-      <a class="waves-effect waves-light btn">New</a>
-      <a class="waves-effect waves-light btn">Edit</a>
+       <a class="waves-effect waves-light btn modal-trigger" href="#modal1">New</a>
+
+   <!-- Modal Structure -->
+       <div id="modal1" class="modal modal-fixed-footer">
+         <div class="modal-content">
+           <div class="input-field col s6">
+             <input placeholder="title" class="title" type="text" class="validate">
+             <label for="title">Title</label>
+           </div>
+           <div class="input-field col s6">
+             <input placeholder="color" class="color" type="text" class="validate">
+             <label for="color">Color</label>
+           </div>
+         </div>
+         <div class="modal-footer">
+           <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+         </div>
+       </div>
+      <a class="waves-effect waves-light btn" id="editCategory">Edit</a>
     </div>
     <!-- footer section -->
     <footer class="page-footer">

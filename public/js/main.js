@@ -22,7 +22,6 @@ $(document).ready(function() {
     };
 
     $.ajax(options)
-      .done(() => {
       .done((response) => {
         let cookie = `jwt=${response.token}`
         document.cookie = cookie;

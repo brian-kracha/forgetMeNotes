@@ -1,30 +1,12 @@
 $(document).ready(function(){
-  var textOnNotes= ""
-  var priority = "";
   $('.collapsible').collapsible();
   $('.modal').modal();
-  $(".button-collapse").sideNav()
-let logOut = $('.logOut')
-
-logOut.click(function(event){
-  var delete_cookie = function(jwt) {
-    document.cookie = jwt + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-};
-})
-
-
-
 
   function addNote (title,content, priority, comments) {
     return `<li> <div class="collapsible-header">${title}
         <span class="badge"><i class='material-icons chatBubble'>chat_bubble_outline</i>${comments}
         <i class='material-icons ${priority}'>fiber_manual_record</i></span></div>
         <div class="collapsible-body"><span>${content}</span></div></li>`
-  }
-  function addCategory (title, color){
-    return `<div class="carousel-item ${color} white-text" href="#one!">
-            <h2>${Title}</h2>
-            </div>`
   }
   $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
@@ -51,10 +33,17 @@ logOut.click(function(event){
   // })
   $('.modal').modal({
       dismissible: true, // Modal can be dismissed by clicking outside of the moda // Ending top style attribute
+      opacity:0.5,
+      ready: function() {
+        $('.modal-overlay')[0].style.zIndex = "1"
+        $('.modal-overlay')[0].style.opacity = "0"
+        // $('.comment').focus()
+
+      },
       complete: function() { // Callback for Modal open. Modal and trigger parameters available.
         textOnNotes = $('#final_span').val()
         const selected = $("input[type='radio'][name='priority']:checked");
-        priority = selected[0].id
+        let priority = selected[0].id
         let title = $('.title').val();
         let tag = $('#Tag').val();
         let reminder = $('#Reminder').val()
@@ -71,9 +60,9 @@ logOut.click(function(event){
           type: 'POST',
           url: '/notes'
         }
-        ajax(options)
+        $.ajax(options)
         .done(() => {
-          window.location.href = '/notes.html';
+          $('.collapsible').append(addNote (title, textOnNotes, priority, 0))
         })
         .fail(($xhr) => {
           Materialize.toast($xhr.responseText, 3000);

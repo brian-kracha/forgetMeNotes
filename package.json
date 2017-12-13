@@ -2,8 +2,10 @@
   "name": "forgetmenotes",
   "version": "1.0.0",
   "description": "Notes Application",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
+    "heroku-postbuild": "knex migrate:rollback; knex migrate:latest; knex seed:run;",
     "knex": "knex",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,9 +24,14 @@
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "cookie-parser": "^1.4.3",
+    "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "jsonwebtoken": "^8.1.0",
     "knex": "^0.14.2",
-    "pg": "^7.4.0"
+    "pg": "^7.4.0",
+    "uuid": "^3.1.0"
+  },
+  "engines": {
+    "node": "7.4.0"
   }
 }
