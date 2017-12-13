@@ -68,5 +68,17 @@ $(document).ready(function(){
           Materialize.toast($xhr.responseText, 3000);
         })
       }
+  })
+  const options = {
+    contentType: 'application/json',
+    dataType: 'json',
+    type: 'GET',
+    url: '/notes'
+  }
+  $.ajax(options)
+  .done((res) => {
+    for(let i = 0; i < res.length; i++){
+      $('.collapsible').append(addNote (res[i].title, res[i].textOnNotes, res[i].priority, 0))
+    }
   });
 });

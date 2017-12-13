@@ -38,10 +38,6 @@ app.post('/login', function (req, res, next){
       var token = jwt.sign({ id: user.id }, 'A4e2n84E0OpF3wW21')
       res.status(200).send({message: "logged in", token: token})
     }
-    // if(bcrypt.compareSync(data.password, user.password)) {
-    //   var token = jwt.sign({ id: user.id }, 'A4e2n84E0OpF3wW21')
-    //   res.status(200).send({message: "logged in", token: token})
-    // }
     else{
       res.status(404).send("password doesn't match")
     }
@@ -81,7 +77,39 @@ app.post('/new-signup', function (req, res, next){
     next(err);
   })
 })
+
+//Routes for notes
+
+app.get('/notes',function(req,res,next){
+  let cookie = req.cookies
+  var decoded = jwt.verify(cookie.jwt, 'A4e2n84E0OpF3wW21', function(err, decoded) {
+   if(err){
+       console.log(err)
+   }else{
+       return decoded
+   }
+ })
+  let id = req.cookies.catID
+  knex('notes')
+  .where('category_id', id)
+  .andWhere('user_id', decoded.id)
+  .orderBy('title')
+  .then(function(notes){
+    res.send(notes)
+  })
+  .catch(function(err){
+    next(err)
+  })
+})
 app.post('/notes', function(req, res, next){
+  let cookie = req.cookies
+  var decoded = jwt.verify(cookie.jwt, 'A4e2n84E0OpF3wW21', function(err, decoded) {
+   if(err){
+       console.log(err)
+   }else{
+       return decoded
+   }
+ })
   let data = req.body
   console.log(data)
   let pin = data.pin.replace(/(\r\n|\n|\r)/g,"");
@@ -93,6 +121,8 @@ app.post('/notes', function(req, res, next){
   }
   return knex('notes')
   .insert({
+    user_id:decoded.id,
+    category_id:req.cookies.catID,
     title: data.title,
     note: data.textOnNotes,
     priority: data.priority,
@@ -103,6 +133,8 @@ app.post('/notes', function(req, res, next){
   .then(function(note) {
     let newNotes = {
       id: note[0].id,
+      user_id: note[0].user_id,
+      category_id: note[0].category_id,
       title: note[0].title,
       note: note[0].textOnNotes,
       priority: note[0].priority,
@@ -113,12 +145,8 @@ app.post('/notes', function(req, res, next){
     res.send(newNotes);
   })
 })
-// app.get('/notes',(req,res,next)=>{
-//
-// app.post('/notes', function(req, res, next){
-//   cat
-//
-// })
+
+//routes for categories
 app.get('/categories',(req,res,next)=>{
   let cookie = req.cookies
   var decoded = jwt.verify(cookie.jwt, 'A4e2n84E0OpF3wW21', function(err, decoded) {
@@ -152,7 +180,7 @@ app.post('/categories',(req,res,next)=>{
   .insert({
     title : req.body.title,
     summary : "hello",
-    // user_id : decoded.id,
+    user_id : decoded.id,
     image_url : req.body.color
   }, '*')
   .then(function(category) {
@@ -169,7 +197,6 @@ app.post('/categories',(req,res,next)=>{
     next(err)
   })
 })
-
 app.use(function(req, res, next){
   res.status(404).json( { error: '404 bad stuff' } )
 })

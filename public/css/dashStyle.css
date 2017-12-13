@@ -59,3 +59,10 @@ footer.page-footer {
     margin-right: 25px;
   }
 }
+
+.indicator-item {
+  visibility: hidden;
+}
+.categoryButton{
+  margin-top: 67%
+}

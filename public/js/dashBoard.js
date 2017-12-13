@@ -1,10 +1,12 @@
 $(document).ready(function(){
   var title=""
   var color=""
-  function addCategory (title, color){
-    return '<div class="carousel-item ' + color +  ' white-text" href="#one!"><h2>' + title + '</h2></div>'
+  function addCategory (title, color,catID){
+    return '<div class="carousel-item ' + color +  ' white-text"><h2>' + title + '</h2><div class="center categoryButton"><a class="btn waves-effect white grey-text darken-text-2" id='+catID+'>open</a></div></div>'
   }
-
+  // <div class="carousel-fixed-item center">
+  //       <a class="btn waves-effect white grey-text darken-text-2">button</a>
+  //     </div>
 
   $('.modal').modal({
     dismissible: true, // Modal can be dismissed by clicking outside of the modal
@@ -46,7 +48,27 @@ $(document).ready(function(){
      }
      $.ajax(options)
      .done((res) => {
-       console.log(res);
+       console.log(res)
+       var slider = $('.carousel')
+      //  slider.carousel();
+
+       for(let i=0; i<res.length; i++){
+         console.log(slider)
+        //  slider.style.href="https://www.google.com/"
+         slider.append(addCategory(res[i].title, res[i].image_url,res[i].id))
+         if (slider.hasClass('initialized')){
+              slider.removeClass('initialized')
+              console.log('here')
+         }
+         slider.carousel();
+         $(`#${res[i].id}`).on('click touchstart',function(){
+           console.log('here')
+           let cookie = `catID=${res[i].id}`
+           document.cookie = cookie;
+           window.location.href = '/notes.html'
+         })
+      }
+       console.log(res)
      })
      .fail(($xhr) => {
        Materialize.toast($xhr.responseText, 3000);

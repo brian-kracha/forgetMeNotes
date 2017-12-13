@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
     table.string('summary').notNullable()
     table.string('image_url').notNullable()
     table.integer('user_id')
-    table.foreign('user_id').references('id').inTable('users').onDelete('CASCADE')
+    // table.foreign('user_id').references('id').inTable('users').onDelete('CASCADE')
   })
 };
 
