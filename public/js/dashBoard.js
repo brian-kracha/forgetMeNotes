@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  $(".button-collapse").sideNav();
   var title=""
   var color=""
   function addCategory (title, color){

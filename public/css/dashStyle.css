@@ -7,7 +7,7 @@ nav .nav-wrapper{
 }
 
 body {
-  background: rgba(211, 212, 217, 1);
+  background-image: url('./photo/paper.jpeg');
   font-family: 'Roboto Slab', serif;
   font-size: 20px;
 }
@@ -17,6 +17,7 @@ footer.page-footer {
 }
 
 .carousel .carousel-item {
+
   width:250px !important;
   height: 375px !important;
 }
