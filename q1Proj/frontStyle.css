@@ -1,0 +1,19 @@
+.body{
+  background-color: MediumSeaGreen;
+}
+.title {
+  font-size: 35;
+  
+}
+
+.nextPage {
+  color: MintGreen;
+
+    -webkit-animation: mymove 5s infinite;
+    animation: mymove 5s infinite;
+}
+
+.nextPage:active{
+  50% {flex-grow: 8;}
+
+}
