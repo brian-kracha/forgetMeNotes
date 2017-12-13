@@ -4,6 +4,7 @@
   "description": "Notes Application",
   "main": "index.js",
   "scripts": {
+    "heroku-postbuild":"knex migrate:latest",
     "knex": "knex",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
