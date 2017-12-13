@@ -4,15 +4,15 @@ const app = express()
 const bodyParser = require('body-parser')
 const PORT = process.env.PORT || 3000
 const path= require('path')
-// const environment = process.env.NODE_ENV || 'development';
-const knexConfig = require('./knexfile');
-const knex = require('knex');
+const environment = process.env.NODE_ENV || 'development';
+const knexConfig = require('./knexfile')[environment];
+const knex = require('knex')(knexConfig);
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const cookieParser = require('cookie-parser')
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config();
-}
+// if (process.env.NODE_ENV !== 'production') {
+//   require('dotenv').config();
+// }
 
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({extened: false}))
