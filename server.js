@@ -38,10 +38,6 @@ app.post('/login', function (req, res, next){
       var token = jwt.sign({ id: user.id }, 'A4e2n84E0OpF3wW21')
       res.status(200).send({message: "logged in", token: token})
     }
-    // if(bcrypt.compareSync(data.password, user.password)) {
-    //   var token = jwt.sign({ id: user.id }, 'A4e2n84E0OpF3wW21')
-    //   res.status(200).send({message: "logged in", token: token})
-    // }
     else{
       res.status(404).send("password doesn't match")
     }
@@ -113,12 +109,7 @@ app.post('/notes', function(req, res, next){
     res.send(newNotes);
   })
 })
-// app.get('/notes',(req,res,next)=>{
-//
-// app.post('/notes', function(req, res, next){
-//   cat
-//
-// })
+
 app.get('/categories',(req,res,next)=>{
   let cookie = req.cookies
   var decoded = jwt.verify(cookie.jwt, 'A4e2n84E0OpF3wW21', function(err, decoded) {
@@ -173,8 +164,17 @@ app.post('/categories',(req,res,next)=>{
 app.use(function(req, res, next){
   res.status(404).json( { error: '404 bad stuff' } )
 })
+//
+// app.post('/logout', (req, res) => {
+//   req.session.destroy();
+//   res.redirect('/');
+// });
 
-
+// app.delete('/logout',(req,res,next) => {
+//   let data = req.body
+//   return knex('logout')
+//
+// })
 app.listen(PORT, function(){
   console.log('Server starting at localhost:' + PORT)
 })
