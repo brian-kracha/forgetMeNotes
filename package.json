@@ -2,10 +2,10 @@
   "name": "forgetmenotes",
   "version": "1.0.0",
   "description": "Notes Application",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "heroku-postbuild":"knex migrate:latest",
+    "heroku-postbuild": "knex migrate:rollback; knex migrate:latest; knex seed:run;",
     "knex": "knex",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
