@@ -93,12 +93,12 @@ a.logOut{
   background: rgba(211, 212, 217, 1);
   height: 100%;
 }
-.rightProfile{
+/*.rightProfile{
   /*background: rgba(236, 200, 174, 1);*/
-  height: 100%;
-}
-.rightProfile{
-  background: rgba(211, 212, 217, 1);
+  /*height: 100%;*/
+//}
+div.row.dividers{
+  background-image: url('../photo/paper.jpg');
 }
 
 .collapsible-body{
