@@ -9,19 +9,22 @@ exports.seed = function(knex, Promise) {
           id: 1,
           username: 'Bishal',
           email: 'bishal@gmail.com',
+          user_id: 1,
           friend: 'sean'
         },
         {
           id: 2,
           username: 'Brian',
           email: 'brian@gmail.com',
-          friend: 'bishal'
+          friend: 'bishal',
+          user_id: 2
         },
         {
           id: 3,
           username: 'Sean',
           email: 'sean@gmail.com',
-          friend: 'brian'
+          friend: 'brian',
+          user_id: 3
         }
       ])
     })

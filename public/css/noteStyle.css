@@ -12,6 +12,15 @@ footer.page-footer {
   background-color: rgba(92, 97, 133, 1);
 }
 
+.addButton {
+  padding: 5px 0 0 5px;
+  height: 140px;
+  width: 150px;
+  position: fixed;
+  right: 5%;
+  bottom: 50%;
+}
+
 .page-footer {
   position:relative;
   bottom:0;
@@ -46,6 +55,11 @@ i.material-icons.chatBubble {
 }
 
 @media only screen and (min-width: 601px){
+  .addButton {
+    margin-top: 20%;
+    margin-right: 10%;
+  }
+
   #accordion {
     position: fixed;
     height: 55%;
