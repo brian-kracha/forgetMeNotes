@@ -8,7 +8,6 @@ const environment = process.env.NODE_ENV || 'development';
 const knexConfig = require('./knexfile')[environment];
 const knex = require('knex')(knexConfig);
 const bcrypt = require('bcrypt')
-const uuid = require('uuid/v4')
 const jwt = require('jsonwebtoken')
 const cookieParser = require('cookie-parser')
 
@@ -51,18 +50,10 @@ app.post('/login', function (req, res, next){
 
 app.post('/new-signup', function (req, res, next){
   let data = req.body
-    uuid = uuidv4()
-    knex('user')
-    .insert({
-      username: data.username,
-      email: data.email,
-      uuid: uuid,
-    })
   bcrypt.hash(data.password,10)
   .then(function(hashedpassword){
     return knex('signup')
     .insert({
-      id: uuid,
       username: data.username,
       email: data.email,
       password: hashedpassword,
@@ -87,29 +78,38 @@ app.post('/new-signup', function (req, res, next){
     next(err);
   })
 })
-// app.post('/notes', function(req, res, next){
-//   let data = req.body
-//   .insert({
-//     username: data.username,
-//     email: data.email,
-//     password: hashedpassword,
-//     DOB: data.DOB,
-//     question: data.securityQuestion,
-//     answer: data.answer
-//   }, '*')
-//   .then(function(user) {
-//     let newUser = {
-//       id: user[0].id,
-//       username: user[0].username,
-//       email: user[0].email,
-//       password: user[0].password,
-//       DOB: user[0].DOB,
-//       question: user[0].question,
-//       answer: user[0].answer
-//     }
-//     res.send(newUser);
-//   knex('notes').instert()
-// })
+app.post('/notes', function(req, res, next){
+  let data = req.body
+  console.log(data)
+  let pin = data.pin.replace(/(\r\n|\n|\r)/gm,"");
+  if(pin === 'public') {
+    pin = true
+  }
+  else {
+    pin = false
+  }
+  return knex('notes')
+  .insert({
+    title: data.title,
+    note: data.textOnNotes,
+    priority: data.priority,
+    tag: data.tag,
+    reminder: data.reminder,
+    pin: pin
+  }, '*')
+  .then(function(note) {
+    let newNotes = {
+      id: note[0].id,
+      title: note[0].title,
+      note: note[0].textOnNotes,
+      priority: note[0].priority,
+      tag: note[0].tag,
+      reminder: note[0].reminder,
+      pin: note[0].pin
+    }
+    res.send(newNotes);
+  })
+})
 // app.get('/notes',(req,res,next)=>{
 //
 // app.post('/notes', function(req, res, next){
@@ -149,7 +149,7 @@ app.post('/categories',(req,res,next)=>{
   .insert({
     title : req.body.title,
     summary : "hello",
-    user_id : decoded.id,
+    // user_id : decoded.id,
     image_url : req.body.color
   }, '*')
   .then(function(category) {

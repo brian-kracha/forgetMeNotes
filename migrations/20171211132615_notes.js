@@ -1,4 +1,3 @@
-
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('notes', table => {
     table.increments();
@@ -12,11 +11,11 @@ exports.up = function(knex, Promise) {
     table.integer('like').default(0)
     table.integer('dislike').default(0)
     table.boolean('pin')
-    table.integer('reminder').default(0)
+    table.dateTime('reminder')
     table.string('tag')
   })
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('signup');
+  return knex.schema.dropTable('notes');
 };

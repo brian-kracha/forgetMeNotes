@@ -1,6 +1,4 @@
 $(document).ready(function(){
-  var textOnNotes= ""
-  var priority = "";
   $('.collapsible').collapsible();
   $('.modal').modal();
 
@@ -35,10 +33,17 @@ $(document).ready(function(){
   // })
   $('.modal').modal({
       dismissible: true, // Modal can be dismissed by clicking outside of the moda // Ending top style attribute
+      opacity:0.5,
+      ready: function() {
+        $('.modal-overlay')[0].style.zIndex = "1"
+        $('.modal-overlay')[0].style.opacity = "0"
+        // $('.comment').focus()
+
+      },
       complete: function() { // Callback for Modal open. Modal and trigger parameters available.
         textOnNotes = $('#final_span').val()
         const selected = $("input[type='radio'][name='priority']:checked");
-        priority = selected[0].id
+        let priority = selected[0].id
         let title = $('.title').val();
         let tag = $('#Tag').val();
         let reminder = $('#Reminder').val()
@@ -57,7 +62,7 @@ $(document).ready(function(){
         }
         $.ajax(options)
         .done(() => {
-          window.location.href = '/notes.html';
+          $('.collapsible').append(addNote (title, textOnNotes, priority, 0))
         })
         .fail(($xhr) => {
           Materialize.toast($xhr.responseText, 3000);

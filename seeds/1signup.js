@@ -1,4 +1,3 @@
-
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
   return knex('signup').del()
@@ -6,7 +5,7 @@ exports.seed = function(knex, Promise) {
       // Inserts seed entries
       return knex('signup').insert([
         {
-          uuid: '110ec58a-a0f2-4ac4-8393-c866d813b8d1',
+          id: 1,
           username: 'Bishal',
           email: 'bishal@gmial.com',
           password: 'bishal',
@@ -15,7 +14,7 @@ exports.seed = function(knex, Promise) {
           answer: 'bishal'
         },
         {
-          uuid: '110ec58a-a0f2-4ac4-8393-c966d813b8d1',
+          id: 2,
           username: 'Brian',
           email: 'briana@gmial.com',
           password: 'brian',
@@ -24,7 +23,7 @@ exports.seed = function(knex, Promise) {
           answer: 'brian'
         },
         {
-          uuid: '110ec58a-a0f2-4ac4-8392-c866d813b8d1',
+          id: 3,
           username: 'Sean',
           email: 'sean@gmial.com',
           password: 'sean',
