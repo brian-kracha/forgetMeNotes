@@ -5,8 +5,8 @@ const bodyParser = require('body-parser')
 const PORT = process.env.PORT || 3000
 const path= require('path')
 const environment = process.env.NODE_ENV || 'development';
-// const knexConfig = require('./knexfile')[environment];
-const knex = require('knex');
+const knexConfig = require('./knexfile')[environment];
+const knex = require('knex')(knexConfig);
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const cookieParser = require('cookie-parser')
@@ -81,7 +81,7 @@ app.post('/new-signup', function (req, res, next){
 app.post('/notes', function(req, res, next){
   let data = req.body
   console.log(data)
-  let pin = data.pin.replace(/(\r\n|\n|\r)/gm,"");
+  let pin = data.pin.replace(/(\r\n|\n|\r)/g,"");
   if(pin === 'public') {
     pin = true
   }
