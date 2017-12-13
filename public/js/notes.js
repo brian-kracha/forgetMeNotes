@@ -10,11 +10,6 @@ $(document).ready(function(){
         <i class='material-icons ${priority}'>fiber_manual_record</i></span></div>
         <div class="collapsible-body"><span>${content}</span></div></li>`
   }
-  function addCategory (title, color){
-    return `<div class="carousel-item ${color} white-text" href="#one!">
-            <h2>${Title}</h2>
-            </div>`
-  }
   $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 200, // Creates a dropdown of 50 years to control year,
@@ -60,7 +55,7 @@ $(document).ready(function(){
           type: 'POST',
           url: '/notes'
         }
-        ajax(options)
+        $.ajax(options)
         .done(() => {
           window.location.href = '/notes.html';
         })

@@ -9,19 +9,22 @@ exports.seed = function(knex, Promise) {
           id: 1,
           username: 'Bishal',
           email: 'bishal@gmail.com',
-          friend: 'sean'
+          friend: 'sean',
+          user_id: '110ec58a-a0f2-4ac4-8393-c866d813b8d1'
         },
         {
           id: 2,
           username: 'Brian',
           email: 'brian@gmail.com',
-          friend: 'bishal'
+          friend: 'bishal',
+          user_id: '110ec58a-a0f2-4ac4-8393-c966d813b8d1'
         },
         {
           id: 3,
           username: 'Sean',
           email: 'sean@gmail.com',
-          friend: 'brian'
+          friend: 'brian',
+          user_id: '110ec58a-a0f2-4ac4-8392-c866d813b8d1'
         }
       ])
     })

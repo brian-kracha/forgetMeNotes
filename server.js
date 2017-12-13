@@ -8,7 +8,7 @@ const environment = process.env.NODE_ENV || 'development';
 const knexConfig = require('./knexfile')[environment];
 const knex = require('knex')(knexConfig);
 const bcrypt = require('bcrypt')
-
+const uuid = require('uuid/v4')
 const jwt = require('jsonwebtoken')
 const cookieParser = require('cookie-parser')
 
@@ -36,11 +36,10 @@ app.post('/login', function (req, res, next){
       var token = jwt.sign({ id: user.id }, 'A4e2n84E0OpF3wW21')
       res.status(200).send({message: "logged in", token: token})
     }
-    }
-    if(bcrypt.compareSync(data.password, user.password)) {
-      var token = jwt.sign({ id: user.id }, 'A4e2n84E0OpF3wW21')
-      res.status(200).send({message: "logged in", token: token})
-    }
+    // if(bcrypt.compareSync(data.password, user.password)) {
+    //   var token = jwt.sign({ id: user.id }, 'A4e2n84E0OpF3wW21')
+    //   res.status(200).send({message: "logged in", token: token})
+    // }
     else{
       res.status(404).send("password doesn't match")
     }
@@ -52,10 +51,18 @@ app.post('/login', function (req, res, next){
 
 app.post('/new-signup', function (req, res, next){
   let data = req.body
+    uuid = uuidv4()
+    knex('user')
+    .insert({
+      username: data.username,
+      email: data.email,
+      uuid: uuid,
+    })
   bcrypt.hash(data.password,10)
   .then(function(hashedpassword){
     return knex('signup')
     .insert({
+      id: uuid,
       username: data.username,
       email: data.email,
       password: hashedpassword,
@@ -123,6 +130,37 @@ app.get('/categories',(req,res,next)=>{
   .orderBy('title')
   .then(function(categories){
     res.send(categories)
+  })
+  .catch(function(err){
+    next(err)
+  })
+})
+
+app.post('/categories',(req,res,next)=>{
+  let cookie = req.cookies
+  var decoded = jwt.verify(cookie.jwt, 'A4e2n84E0OpF3wW21', function(err, decoded) {
+   if(err){
+       console.log(err)
+   }else{
+       return decoded
+   }
+ })
+  return knex('categories')
+  .insert({
+    title : req.body.title,
+    summary : "hello",
+    user_id : decoded.id,
+    image_url : req.body.color
+  }, '*')
+  .then(function(category) {
+    let newCategory = {
+      id : category[0].id,
+      title : category[0].title,
+      summary : category[0].summary,
+      user_id : category[0].user_id,
+      image_url : category[0].image_url
+    }
+    res.send(newCategory)
   })
   .catch(function(err){
     next(err)
