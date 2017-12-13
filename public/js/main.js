@@ -23,7 +23,10 @@ $(document).ready(function() {
 
     $.ajax(options)
       .done(() => {
-        window.location.href = '/login';
+      .done((response) => {
+        let cookie = `jwt=${response.token}`
+        document.cookie = cookie;
+        window.location.href = '/dashboard.html';
       })
       .fail(($xhr) => {
         Materialize.toast($xhr.responseText, 3000);
@@ -52,7 +55,7 @@ $(document).ready(function() {
 
     $.ajax(options)
       .done(() => {
-        window.location.href = '/login';
+        window.location.href = '/dashboard.html';
       })
       .fail(($xhr) => {
         Materialize.toast($xhr.responseText, 3000);
