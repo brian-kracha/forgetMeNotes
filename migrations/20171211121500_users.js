@@ -5,7 +5,7 @@ exports.up = function(knex, Promise) {
     table.string('email').notNullable().default("")
     table.string('friend').notNullable()
     table.integer('user_id')
-    table.foreign('user_id').references('id').inTable('signup')
+    table.foreign('user_id').references('id').inTable('signup').onDelete('CASCADE')
   })
 };
 
