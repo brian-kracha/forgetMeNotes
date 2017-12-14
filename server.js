@@ -145,11 +145,6 @@ app.post('/notes', function(req, res, next){
     res.send(newNotes);
   })
 })
-
-<<<<<<< HEAD
-//routes for categories
-=======
->>>>>>> 15f4ffbf0ab7bafd6c5507147a9a92d9ddeca2cd
 app.get('/categories',(req,res,next)=>{
   let cookie = req.cookies
   var decoded = jwt.verify(cookie.jwt, 'A4e2n84E0OpF3wW21', function(err, decoded) {
