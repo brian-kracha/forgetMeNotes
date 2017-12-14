@@ -42,11 +42,29 @@ $(document).ready(function(){
       },
       complete: function() { // Callback for Modal open. Modal and trigger parameters available.
         textOnNotes = $('#final_span').val()
-        const selected = $("input[type='radio'][name='priority']:checked");
-        let priority = selected[0].id
         let title = $('.title').val();
         let tag = $('#Tag').val();
         let reminder = $('#Reminder').val()
+        if(title === "") {
+          title = "untitled"
+        }
+        if(textOnNotes === "") {
+          return Materialize.toast('You don not have any thing recorded', 5000)
+        }
+        if($('#record_button').html() === "Stop Recording") {
+          return Materialize.toast('Make sure you stopped the recording', 5000)
+        }
+        if($('#Reminder').val() === ""){
+          return Materialize.toast('Please select the date for reminder', 5000)
+        }
+        const selected = $("input[type='radio'][name='priority']:checked");
+        if(selected.length===0){
+          console.log('here')
+          var priority = 'icoGreen'
+        }else {
+          priority = selected[0].id
+        }
+        console.log(typeof($('#Reminder').val()))
         const options = {
           contentType: 'application/json',
           data: JSON.stringify({title, textOnNotes, priority,tag,reminder,pin}),
@@ -56,15 +74,6 @@ $(document).ready(function(){
         }
         $.ajax(options)
         .done(() => {
-          if(title === "") {
-            title = "untitled"
-          }
-          if(textOnNotes === "") {
-            return Materialize.toast('You don not have any thing recorded', 5000)
-          }
-          if($('#record_button').html() === "Stop Recording") {
-            return Materialize.toast('Make sure you stopped the recording', 5000)
-          }
           $('.collapsible').append(addNote (title, textOnNotes, priority, 0));
           $('#final_span').val("")
           $('#Tag').val("")
