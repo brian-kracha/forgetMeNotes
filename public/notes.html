@@ -19,14 +19,30 @@
           <a href="#" class="brand-logo">Notes</a>
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul id="nav-mobile" class="right hide-on-small-and-down">
-            <li class="userProfile"><a href="#">Sean</a></li>
+            <li class="userProfile"><a href="#" id='profileButton' ></a></li>
           </ul>
         </div>
       </nav>
     </div>
     <ul class="side-nav" id="mobile-demo">
-      <li class=""><a href="#" class='logOut'>Log-out</a></li>
+      <li><div class="user-view">
+        <div class="background">
+          <img src="./photo/background.jpeg" class="backgroundImg">
+        </div>
+        <a href="#"><img src="./photo/profile.png" alt="profilepage" class="profileMobile" id="img-preview"></img></a>
 
+        <a href="#">
+          <label class="file-upload-container" for="file-upload">
+     <input id="file-upload" type="file" >
+     Select an Image
+   </label>
+   <span class="blue-text name phoneUser"></span></a>
+        <div class="bioPhone">Galvanize Student learning a web development immersive program</div>
+        <span class="blue-text email">brian.kracha@gmail.com</span>
+        <a href="#!"><a href="#"><img class="linkedin" src="./photo/linkedin.png"></a>
+        <div class="divider"></div>
+      </div></li>
+      <li class="" id="log-In"><a href="#" class="logOut">Log-Out</a></li>
     </ul>
     <div class="center" id="accordion">
       <ul class="collapsible">
@@ -76,11 +92,11 @@
             <input name="priority" type="radio" id="icoRed" />
             <label for="icoRed">High</label>
 
-            <input name="priority" type="radio" id="icoYellow" />
-            <label for="icoYellow">Medium</label>
-
             <input name="priority" type="radio" id="icoGreen" />
-            <label for="icoGreen">Low</label>
+            <label for="icoGreen">Medium</label>
+
+            <input name="priority" type="radio" id="icoBlue" />
+            <label for="icoBlue">Low</label>
           </span>
           <span>
             <a class='dropdown-button btn' id="Pin" href='#' data-activates='dropdown1'>Pin</a>
@@ -108,7 +124,7 @@
      <br><br><br><br><br>
     <!-- footer section -->
     <footer class="page-footer" <footer class="page-footer">
-        <div class="container">
+        <!-- <div class="container">
           <div class="row">
             <div class="col l6 s12">
               <h5 class="white-text">Notes</h5>
@@ -120,16 +136,18 @@
             </div>
           </div>
         </div>
-        <div class="footer-copyright">
+        <div class="footer-copyright"> -->
           <div class="container">
               © 2014 Copyright Us Bro
 
           </div>
-        </div>
+        <!-- </div> -->
       </footer>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.min.js'></script>
+    <script type='text/javascript' src='./cloudinary/api.js'></script>
     <script type="text/javascript" src="./js/notes.js"></script>
     <script type="text/javascript" src="./js/speech.js">
 

@@ -57,6 +57,7 @@ $(document).ready(function() {
       .done((response) => {
         let cookie = `jwt=${response.token}`
         document.cookie = cookie;
+        document.cookie = `username=${response.username}`;
         window.location.href = '/dashboard.html';
       })
       .fail(($xhr) => {

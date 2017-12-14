@@ -1,6 +1,23 @@
 nav .nav-wrapper{
   background-color: rgba(185, 18, 40, 1);
 }
+.profileMobile{
+    height: 150px;
+    border-radius: 50%;
+  }
+.backgroundImg{
+    width: 100%
+  }
+.bioPhone{
+      line-height: 22px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+  }
+
+.linkedin{
+  height: 30px;
+  width: 30px;
+}
 
 body {
   background: rgba(211, 212, 217, 1);
@@ -9,7 +26,11 @@ body {
 }
 
 footer.page-footer {
+  position:fixed;
   background-color: rgba(92, 97, 133, 1);
+  bottom:0;
+  left:0;
+  width:100%;
 }
 
 .addButton {
@@ -18,7 +39,7 @@ footer.page-footer {
   width: 150px;
   position: fixed;
   right: 5%;
-  bottom: 50%;
+  bottom: 0px;
 }
 
 .page-footer {
@@ -47,9 +68,9 @@ i.material-icons.chatBubble {
   left: 10%;
   top: 25%;
 }
-.icoYellow {
+.icoBlue {
   position: relative;
-  color: yellow;
+  color: blue;
   left: 10%;
   top: 25%;
 }

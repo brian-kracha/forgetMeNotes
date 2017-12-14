@@ -18,7 +18,7 @@ Installation
 
 1. Open the root directory for forgetMeNotes
 2. Run “npm install” on command line for all the dependencies
-3. run “createdb_dev” to create a database on your command line
+3. run “createdb notesdb_dev” to create a database on your command line
 
 Running locally
 

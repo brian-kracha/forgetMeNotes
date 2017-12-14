@@ -1,9 +1,17 @@
 $(document).ready(function(){
   $('.collapsible').collapsible();
   $('.modal').modal();
-
+  $('.button-collapse').sideNav();
+  window.getCookie = function(name) {
+    match = document.cookie.match(new RegExp(name + '=([^;]+)'));
+    if (match) return match[1];
+  }
+  let username =window.getCookie('username')
+  console.log(username)
+  $('.phoneUser').html(username);
+  $('#profileButton').html(username);
   function addNote (title,content, priority, comments) {
-    return `<li> <div class="collapsible-header">${title}
+    return `<li> <div class="collapsible-header"><i class="material-icons">place</i>${title}
         <span class="badge"><i class='material-icons chatBubble'>chat_bubble_outline</i>${comments}
         <i class='material-icons ${priority}'>fiber_manual_record</i></span></div>
         <div class="collapsible-body"><span>${content}</span></div></li>`
@@ -51,6 +59,13 @@ $(document).ready(function(){
         if($('#Reminder').val() === ""){
           return Materialize.toast('Please select the date for reminder', 5000)
         }
+        $('.collapsible').append(addNote (title, textOnNotes, priority, 0));
+        if(textOnNotes === "") {
+          return Materialize.toast('You don not have any thing recorded', 5000)
+        }
+        if($('#record_button').html() === "Stop Recording") {
+          return Materialize.toast('Make sure you stopped the recording', 5000)
+        }
         const selected = $("input[type='radio'][name='priority']:checked");
         if(selected.length===0){
           console.log('here')
@@ -68,13 +83,6 @@ $(document).ready(function(){
         }
         $.ajax(options)
         .done(() => {
-          $('.collapsible').append(addNote (title, textOnNotes, priority, 0));
-          if(textOnNotes === "") {
-            return Materialize.toast('You don not have any thing recorded', 5000)
-          }
-          if($('#record_button').html() === "Stop Recording") {
-            return Materialize.toast('Make sure you stopped the recording', 5000)
-          }
           $('#final_span').val("")
           $('#Tag').val("")
           $('.title').val("")

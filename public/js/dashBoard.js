@@ -1,4 +1,13 @@
 $(document).ready(function(){
+  window.getCookie = function(name) {
+    match = document.cookie.match(new RegExp(name + '=([^;]+)'));
+    if (match) return match[1];
+  }
+  let username =window.getCookie('username')
+  console.log(username)
+  $('.phoneUser').html(username);
+  $('#profileButton').html(username)
+  $('.button-collapse').sideNav();
   var title=""
   var color=""
   function addCategory (title, color,catID){

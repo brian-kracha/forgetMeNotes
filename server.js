@@ -36,7 +36,7 @@ app.post('/login', function (req, res, next){
     }
     if(bcrypt.compareSync(data.password, user.password)) {
       var token = jwt.sign({ id: user.id }, 'A4e2n84E0OpF3wW21')
-      res.status(200).send({message: "logged in", token: token})
+      res.status(200).send({message: "logged in", token: token, username: user.username})
     }
     else{
       res.status(404).send("password doesn't match")
@@ -149,7 +149,7 @@ app.get('/categories',(req,res,next)=>{
   let cookie = req.cookies
   var decoded = jwt.verify(cookie.jwt, 'A4e2n84E0OpF3wW21', function(err, decoded) {
  if(err){
-    return 
+    return
  }else{
      return decoded
  }

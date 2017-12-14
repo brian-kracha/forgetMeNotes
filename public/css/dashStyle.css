@@ -5,6 +5,23 @@ nav .nav-wrapper{
 .waves-effect {
   margin: auto;
 }
+.profileMobile{
+    height: 150px;
+    border-radius: 50%;
+  }
+.backgroundImg{
+    width: 100%
+  }
+.bioPhone{
+      line-height: 22px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+  }
+
+.linkedin{
+  height: 30px;
+  width: 30px;
+}
 
 body {
   background: rgba(211, 212, 217, 1);
@@ -69,12 +86,13 @@ footer.page-footer {
   margin-top: 67%
 }
 body{
-  background-image: url('/photo/old-wrinkled.png');
-  background-repeat: no-repeat;
+  /*background-color: red;*/
+  background-image: url('/photo/paper.jpg');
+  /*background-repeat: no-repeat;*/
   background-size: 100%
 }
 div.carousel.categories.initialized{
-  background-image: url('/photo/old-wrinkled.png');
-  background-repeat: no-repeat;
+  background-image: url('/photo/paper.jpg');
+  /*background-repeat: no-repeat;*/
   background-size: 100%
 }
