@@ -15,6 +15,9 @@ $(document).ready(function(){
   console.log(username)
   $('.phoneUser').html(username);
   $('#profileButton').html(username);
+  $('#profileButton').click(function(){
+    window.location.href = '/profile.html'
+  })
   function addNote (title,content, priority, comments) {
     return `<li> <div class="collapsible-header"><i class="material-icons">place</i>${title}
         <span class="badge"><i class='material-icons chatBubble'>chat_bubble_outline</i>${comments}
@@ -64,7 +67,7 @@ $(document).ready(function(){
         if($('#Reminder').val() === ""){
           return Materialize.toast('Please select the date for reminder', 5000)
         }
-        $('.collapsible').append(addNote (title, textOnNotes, priority, 0));
+
         if(textOnNotes === "") {
           return Materialize.toast('You don not have any thing recorded', 5000)
         }
@@ -76,8 +79,9 @@ $(document).ready(function(){
           console.log('here')
           var priority = 'icoGreen'
         }else {
-          priority = selected[0].id
+        var priority = selected[0].id
         }
+        $('.collapsible').append(addNote (title, textOnNotes, priority, 0));
         console.log(typeof($('#Reminder').val()))
         const options = {
           contentType: 'application/json',

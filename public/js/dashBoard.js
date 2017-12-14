@@ -7,6 +7,12 @@ $(document).ready(function(){
     document.cookie = 'jwt' + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     window.location.href= '/landing.html'
   })
+  $('#profileButton').click(function(){
+    window.location.href = '/profile.html'
+  })
+  $('.phoneUser').click(function(){
+    window.location.href = '/profile.html'
+  })
   let username =window.getCookie('username')
   console.log(username)
   $('.phoneUser').html(username);

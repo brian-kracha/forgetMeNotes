@@ -83,16 +83,16 @@ footer.page-footer {
   visibility: hidden;
 }
 .categoryButton{
-  margin-top: 67%
+  margin-top: 55%
 }
 body{
   /*background-color: red;*/
-  background-image: url('/photo/paper.jpg');
+  background-image: url('/photo/rough_paper.jpg');
   /*background-repeat: no-repeat;*/
   background-size: 100%
 }
 div.carousel.categories.initialized{
-  background-image: url('/photo/paper.jpg');
+  background-image: url('/photo/rough_paper.jpg');
   /*background-repeat: no-repeat;*/
   background-size: 100%
 }
