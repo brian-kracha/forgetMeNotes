@@ -114,7 +114,6 @@
      }
 
 
-
      function toggleStop(){
          if (recognizing) {
              recognition.stop();
@@ -131,18 +130,20 @@
          // })
      }
      // record button//
-     function toggleStartStop() {
-         if (recognizing) {
-             toggleStop();
+     $('#record_button').on('click touchstart', function() {
+        function toggleStartStop() {
+            if (recognizing) {
+                toggleStop();
 
-         } else {
-             final_transcript = '';
-             recognition.lang = 'en-US';
-             recognition.start();
+            } else {
+                final_transcript = '';
+                recognition.lang = 'en-US';
+                recognition.start();
 
-             final_span.value = '';
-             interim_span.value = '';
-             start_timestamp = event.timeStamp;
-             document.getElementById('record_button').innerHTML = 'Stop Recording';
-         }
-     }
+                final_span.value = '';
+                interim_span.value = '';
+                start_timestamp = event.timeStamp;
+                document.getElementById('record_button').innerHTML = 'Stop Recording';
+            }
+        }
+     })
