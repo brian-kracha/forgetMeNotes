@@ -149,7 +149,7 @@ app.get('/categories',(req,res,next)=>{
   let cookie = req.cookies
   var decoded = jwt.verify(cookie.jwt, 'A4e2n84E0OpF3wW21', function(err, decoded) {
  if(err){
-     console.log(err)
+    return 
  }else{
      return decoded
  }

@@ -35,6 +35,7 @@ $(document).ready(function() {
   $('#log-In').click(function(event) {
     console.log('here');
     event.preventDefault();
+
     const email = $('#email').val().trim();
     const password = $('#password').val();
     if(!email) {
@@ -54,6 +55,8 @@ $(document).ready(function() {
 
     $.ajax(options)
       .done(() => {
+        let cookie = `jwt=${response.token}`
+        document.cookie = cookie;
         window.location.href = '/dashboard.html';
       })
       .fail(($xhr) => {

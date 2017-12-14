@@ -48,12 +48,6 @@ $(document).ready(function(){
         if(title === "") {
           title = "untitled"
         }
-        if(textOnNotes === "") {
-          return Materialize.toast('You don not have any thing recorded', 5000)
-        }
-        if($('#record_button').html() === "Stop Recording") {
-          return Materialize.toast('Make sure you stopped the recording', 5000)
-        }
         if($('#Reminder').val() === ""){
           return Materialize.toast('Please select the date for reminder', 5000)
         }
@@ -75,6 +69,12 @@ $(document).ready(function(){
         $.ajax(options)
         .done(() => {
           $('.collapsible').append(addNote (title, textOnNotes, priority, 0));
+          if(textOnNotes === "") {
+            return Materialize.toast('You don not have any thing recorded', 5000)
+          }
+          if($('#record_button').html() === "Stop Recording") {
+            return Materialize.toast('Make sure you stopped the recording', 5000)
+          }
           $('#final_span').val("")
           $('#Tag').val("")
           $('.title').val("")

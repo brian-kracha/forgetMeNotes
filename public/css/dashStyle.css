@@ -12,9 +12,10 @@ body {
   font-size: 20px;
 }
 
-footer.page-footer {
+/*footer.page-footer {
   background-color: rgba(92, 97, 133, 1);
-}
+  bottom: 0;
+}*/
 
 .carousel .carousel-item {
   width:250px !important;
@@ -22,7 +23,8 @@ footer.page-footer {
 }
 
 footer.page-footer {
-  position:relative;
+  position:fixed;
+  background-color: rgba(92, 97, 133, 1);
   bottom:0;
   left:0;
   width:100%;
@@ -65,4 +67,14 @@ footer.page-footer {
 }
 .categoryButton{
   margin-top: 67%
+}
+body{
+  background-image: url('/photo/old-wrinkled.png');
+  background-repeat: no-repeat;
+  background-size: 100%
+}
+div.carousel.categories.initialized{
+  background-image: url('/photo/old-wrinkled.png');
+  background-repeat: no-repeat;
+  background-size: 100%
 }
