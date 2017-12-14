@@ -14,6 +14,12 @@ $(document).ready(function(){
     complete: function(){
       title = $('.title').val()
       color = $('.color').val()
+      if(title === ""){
+        return Materialize.toast('please add title to category', 3000);
+      }
+      if(color===""){
+        color = "red"
+      }
       const options = {
         contentType: 'application/json',
         data: JSON.stringify({title,color}),
@@ -32,6 +38,8 @@ $(document).ready(function(){
 			         slider.removeClass('initialized')
           }
           slider.carousel();
+          $('.title').val("")
+          $('.color').val("")
         })
         .fail(($xhr) => {
           Materialize.toast($xhr.responseText, 3000);
