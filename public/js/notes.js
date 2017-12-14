@@ -6,6 +6,11 @@ $(document).ready(function(){
     match = document.cookie.match(new RegExp(name + '=([^;]+)'));
     if (match) return match[1];
   }
+
+  $('.logOut').click(function(){
+    document.cookie = 'jwt' + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    window.location.href= '/landing.html'
+  })
   let username =window.getCookie('username')
   console.log(username)
   $('.phoneUser').html(username);

@@ -1,4 +1,8 @@
 $(document).ready(function(event) {
+  $('.logOut').click(function(){
+    document.cookie = 'jwt' + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    window.location.href= '/landing.html'
+  })
     let a = 1
     let b = 1
     $(".button-collapse").sideNav();
