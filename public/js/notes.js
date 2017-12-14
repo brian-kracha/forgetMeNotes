@@ -47,12 +47,6 @@ $(document).ready(function(){
         let title = $('.title').val();
         let tag = $('#Tag').val();
         let reminder = $('#Reminder').val()
-        // console.log(textOnNotes)
-        // console.log(priority)
-        // console.log(title)
-        // console.log(tag)
-        // console.log(reminder)
-        // console.log(pin)
         const options = {
           contentType: 'application/json',
           data: JSON.stringify({title, textOnNotes, priority,tag,reminder,pin}),
@@ -62,7 +56,21 @@ $(document).ready(function(){
         }
         $.ajax(options)
         .done(() => {
-          $('.collapsible').append(addNote (title, textOnNotes, priority, 0))
+          if(title === "") {
+            title = "untitled"
+          }
+          if(textOnNotes === "") {
+            return Materialize.toast('You don not have any thing recorded', 5000)
+          }
+          if($('#record_button').html() === "Stop Recording") {
+            return Materialize.toast('Make sure you stopped the recording', 5000)
+          }
+          $('.collapsible').append(addNote (title, textOnNotes, priority, 0));
+          $('#final_span').val("")
+          $('#Tag').val("")
+          $('.title').val("")
+          $('#Pin').html("PIN")
+
         })
         .fail(($xhr) => {
           Materialize.toast($xhr.responseText, 3000);
