@@ -8,10 +8,11 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link rel="stylesheet" href="./css/noteStyle.css">
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
   <body>
+    <div class="main">
     <!--navbar section  -->
     <div class="navbar-fixed">
       <nav>
@@ -43,14 +44,14 @@
            <div class="collapsible-body"><span class='badge'>No notes</span></div>
          </li>
 
-
+         <div class='addButton'>
+           <a class="waves-effect waves-light btn modal-trigger red btn-floating right" href="#modal1"><i class="material-icons">add</i></a>
+         </div>
            </div>
 
 
        </ul>
-       <div class='addButton'>
-         <a class="waves-effect waves-light btn modal-trigger red btn-floating right" href="#modal1"><i class="material-icons">add</i></a>
-      </div>
+
   <!-- Modal Structure -->
       <div id="modal1" class="modal">
         <div class="modal-content">
@@ -69,6 +70,7 @@
               <input class="inputs final" id="final_span"  type="text">
 
           </div>
+
         </div>
         <div class="modal-footer">
           <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
@@ -106,6 +108,7 @@
       </div>
 
      <br><br><br><br><br>
+   </div>
     <!-- footer section -->
     <footer class="page-footer" <footer class="page-footer">
         <div class="container">
@@ -122,7 +125,7 @@
         </div>
         <div class="footer-copyright">
           <div class="container">
-              © 2014 Copyright Us Bro
+              © 2017 Copyright Us Bro
 
           </div>
         </div>

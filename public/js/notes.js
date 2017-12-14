@@ -1,6 +1,7 @@
 $(document).ready(function(){
   $('.collapsible').collapsible();
   $('.modal').modal();
+  $(".button-collapse").sideNav();
 
   function addNote (title,content, priority, comments) {
     return `<li> <div class="collapsible-header">${title}
