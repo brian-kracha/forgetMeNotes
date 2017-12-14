@@ -5,7 +5,13 @@
  //  contains cutom methods, etc for implementing
  //  the speech Recognition
  ////////////////////////////////////////////
+var recordButton = $('#record_button')[0];
+console.log(recordButton)
+// create a simple instance
+// by default, it only adds horizontal recognizers
+var record = new Hammer(recordButton);
 
+// listen to events...
  function reset() {
      return false;
  }
@@ -130,7 +136,8 @@
          // })
      }
      // record button//
-     $('#record_button').on('click touchstart', function() {
+     record.on('tap', function() {
+       console.log("here")
         function toggleStartStop() {
             if (recognizing) {
                 toggleStop();
