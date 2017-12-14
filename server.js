@@ -91,9 +91,9 @@ app.get('/notes',function(req,res,next){
  })
   let id = req.cookies.catID
   knex('notes')
-  .orderBy('priority','desc')
   .where('category_id', id)
   .andWhere('user_id', decoded.id)
+  .orderBy('title')
   .then(function(notes){
     res.send(notes)
   })
@@ -112,7 +112,7 @@ app.post('/notes', function(req, res, next){
  })
   let data = req.body
   console.log(data)
-  let pin = data.pin.replace("\n", '');
+  let pin = data.pin.replace(/(\r\n|\n|\r)/g,"");
   if(pin === 'public') {
     pin = true
   }
