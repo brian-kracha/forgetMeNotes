@@ -5,13 +5,7 @@
  //  contains cutom methods, etc for implementing
  //  the speech Recognition
  ////////////////////////////////////////////
-var recordButton = $('#record_button')[0];
-console.log(recordButton)
-// create a simple instance
-// by default, it only adds horizontal recognizers
-var record = new Hammer(recordButton);
 
-// listen to events...
  function reset() {
      return false;
  }
@@ -120,6 +114,7 @@ var record = new Hammer(recordButton);
      }
 
 
+
      function toggleStop(){
          if (recognizing) {
              recognition.stop();
@@ -136,21 +131,18 @@ var record = new Hammer(recordButton);
          // })
      }
      // record button//
-     record.on('tap', function() {
-       console.log("here")
-        function toggleStartStop() {
-            if (recognizing) {
-                toggleStop();
+     function toggleStartStop() {
+         if (recognizing) {
+             toggleStop();
 
-            } else {
-                final_transcript = '';
-                recognition.lang = 'en-US';
-                recognition.start();
+         } else {
+             final_transcript = '';
+             recognition.lang = 'en-US';
+             recognition.start();
 
-                final_span.value = '';
-                interim_span.value = '';
-                start_timestamp = event.timeStamp;
-                document.getElementById('record_button').innerHTML = 'Stop Recording';
-            }
-        }
-     })
+             final_span.value = '';
+             interim_span.value = '';
+             start_timestamp = event.timeStamp;
+             document.getElementById('record_button').innerHTML = 'Stop Recording';
+         }
+     }
