@@ -195,20 +195,58 @@ app.post('/categories',(req,res,next)=>{
     next(err)
   })
 })
+app.post('/image',(req,res,next)=>{
+  console.log(req.body)
+  let cookie = req.cookies
+  var decoded = jwt.verify(cookie.jwt, 'A4e2n84E0OpF3wW21', function(err, decoded) {
+   if(err){
+       console.log(err)
+   }else{
+       return decoded
+   }
+ })
+  let image = req.body.image_url
+  knex('image_url')
+  .where('user_id', decoded.id)
+  .insert({
+    image_url:image,
+    user_id:decoded.id
+  }, '*')
+  .then(function(url){
+    let newImage ={
+      id : url.id,
+      user_id:url.user_id,
+      image_url:url.image_url
+    }
+    res.send(newImage)
+  })
+  .catch(function(err){
+    next(err)
+  })
+
+})
+app.get('/image', (req,res,next)=>{
+  let cookie = req.cookies
+  var decoded = jwt.verify(cookie.jwt, 'A4e2n84E0OpF3wW21', function(err, decoded) {
+   if(err){
+       console.log(err)
+   }else{
+       return decoded
+   }
+ })
+  knex('image_url')
+  .select('image_url')
+  .where('user_id',decoded.id)
+  .then(function(data){
+    res.send(data)
+  }).catch(function(err){
+    next(err)
+  })
+})
 app.use(function(req, res, next){
   res.status(404).json( { error: '404 bad stuff' } )
 })
-//
-// app.post('/logout', (req, res) => {
-//   req.session.destroy();
-//   res.redirect('/');
-// });
 
-// app.delete('/logout',(req,res,next) => {
-//   let data = req.body
-//   return knex('logout')
-//
-// })
 app.listen(PORT, function(){
   console.log('Server starting at localhost:' + PORT)
 })

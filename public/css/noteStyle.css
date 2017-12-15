@@ -54,7 +54,7 @@ i.material-icons.chatBubble {
 .chatBubble {
   position: relative;
   top: 51%;
-  left: 35%;
+  left: 17%;
 }
 .icoGreen {
   position: relative;
@@ -74,6 +74,10 @@ i.material-icons.chatBubble {
   left: 10%;
   top: 25%;
 }
+/*.edit{
+  position: relative;
+  left: 50%;
+}*/
 
 @media only screen and (min-width: 601px){
   .addButton {
@@ -118,3 +122,4 @@ i.material-icons.chatBubble {
   .userProfile {
     margin-right: 25px;
   }
+}

@@ -59,6 +59,7 @@ $(document).ready(function(){
           slider.carousel();
           $('.title').val("")
           $('.color').val("")
+          window.location.href = '/dashboard.html'
         })
         .fail(($xhr) => {
           Materialize.toast($xhr.responseText, 3000);
@@ -100,7 +101,24 @@ $(document).ready(function(){
      .fail(($xhr) => {
        Materialize.toast($xhr.responseText, 3000);
      })
+     const options1 = {
+     contentType: 'application/json',
+     dataType: 'json',
+     type: 'GET',
+     url: '/image'
+   }
 
+   $.ajax(options1)
+     .done((data) => {
+       var imgPreview = document.getElementById('img-preview');
+       imgPreview.src = data[data.length-1].image_url;
+       console.log(data[0])
+      //  $('#img-preview').attr('src',data.image_url)
+
+     })
+     .fail(($xhr) => {
+       Materialize.toast($xhr.responseText, 3000);
+     })
     //  $('#newCategory').click(function(){
     //    let roughdata = addCategory(title,color)
     //    const options = {

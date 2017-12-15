@@ -20,7 +20,7 @@ $(document).ready(function(){
   })
   function addNote (title,content, priority, comments) {
     return `<li> <div class="collapsible-header"><i class="material-icons">place</i>${title}
-        <span class="badge"><i class='material-icons chatBubble'>chat_bubble_outline</i>${comments}
+        <span class="badge"><button class="edit">edit</button>&nbsp&nbsp<button class="delete">delete</button><i class='material-icons chatBubble'>chat_bubble_outline</i>${comments}
         <i class='material-icons ${priority}'>fiber_manual_record</i></span></div>
         <div class="collapsible-body"><span>${content}</span></div></li>`
   }
