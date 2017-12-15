@@ -20,7 +20,7 @@ $(document).ready(function(){
   })
   function addNote (title, content, priority, comments, id) {
     return `<li> <div class="collapsible-header"><i class="material-icons">place</i>${title}
-        <span class="badge"><button class="edit"id=${id}>edit</button>&nbsp&nbsp<button class="delete">delete</button><i class='material-icons chatBubble'>chat_bubble_outline</i>${comments}
+        <span class="badge"><button class="edit"id=${id}>delete</button><i class='material-icons chatBubble'>chat_bubble_outline</i>${comments}
         <i class='material-icons ${priority}'>fiber_manual_record</i></span></div>
         <div class="collapsible-body"><span>${content}</span></div></li>`
   }
@@ -57,7 +57,7 @@ $(document).ready(function(){
 
       },
       complete: function() { // Callback for Modal open. Modal and trigger parameters available.
-        textOnNotes = $('#final_span').val()
+        let textOnNotes = $('#final_span').val()
         let title = $('.title').val();
         let tag = $('#Tag').val();
         let reminder = $('#Reminder').val()
@@ -92,6 +92,8 @@ $(document).ready(function(){
         }
         $.ajax(options)
         .done(() => {
+          console.log(textOnNotes);
+          window.location.href='/notes.html'
           $('#final_span').val("")
           $('#Tag').val("")
           $('.title').val("")
@@ -129,7 +131,8 @@ function addEdit() {
   $.ajax(options)
   .done((res) => {
     for(let i = 0; i < res.length; i++){
-      $('.collapsible').append(addNote (res[i].title, res[i].textOnNotes, res[i].priority, 0, res[i].id))
+      console.log(res[i].note)
+      $('.collapsible').append(addNote (res[i].title, res[i].note, res[i].priority, 0, res[i].id))
       addEdit()
     }
   })

@@ -116,8 +116,9 @@ app.get('/notes',function(req,res,next){
   knex('notes')
   .where('category_id', id)
   .andWhere('user_id', decoded.id)
-  .orderBy('title')
+  .orderBy('priority','desc')
   .then(function(notes){
+    console.log(notes[0].note)
     res.send(notes)
   })
   .catch(function(err){

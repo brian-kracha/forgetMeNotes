@@ -18,7 +18,10 @@ nav .nav-wrapper{
   height: 30px;
   width: 30px;
 }
-
+.edit{
+  background:rgba(92, 97, 133, 1);
+  color: white;
+}
 body {
   background: rgba(211, 212, 217, 1);
   font-family: 'Roboto Slab', serif;
@@ -54,7 +57,7 @@ i.material-icons.chatBubble {
 .chatBubble {
   position: relative;
   top: 51%;
-  left: 17%;
+  left: 22%;
 }
 .icoGreen {
   position: relative;
