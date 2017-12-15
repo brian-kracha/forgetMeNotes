@@ -39,7 +39,7 @@ app.delete('/note/:id', function(req,res,next){
   .andWhere('id', id)
   .then(function(notes){
     console.log(notes);
-    res.send(notes)
+    res.status(200).send(notes)
   })
   .catch(function(err){
     next(err)
