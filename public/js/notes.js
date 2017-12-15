@@ -18,9 +18,9 @@ $(document).ready(function(){
   $('#profileButton').click(function(){
     window.location.href = '/profile.html'
   })
-  function addNote (title,content, priority, comments) {
+  function addNote (title, content, priority, comments, id) {
     return `<li> <div class="collapsible-header"><i class="material-icons">place</i>${title}
-        <span class="badge"><button class="edit">edit</button>&nbsp&nbsp<button class="delete">delete</button><i class='material-icons chatBubble'>chat_bubble_outline</i>${comments}
+        <span class="badge"><button class="edit"id=${id}>edit</button>&nbsp&nbsp<button class="delete">delete</button><i class='material-icons chatBubble'>chat_bubble_outline</i>${comments}
         <i class='material-icons ${priority}'>fiber_manual_record</i></span></div>
         <div class="collapsible-body"><span>${content}</span></div></li>`
   }
@@ -103,6 +103,23 @@ $(document).ready(function(){
         })
       }
   })
+function addEdit() {
+  $('.edit').on('click', function (event){
+    console.log(event.currentTarget.id)
+    const options1 = {
+      contentType: 'application/json',
+      dataType: 'json',
+      type: 'DELETE',
+      url: `/note/${event.currentTarget.id}`
+    }
+    $.ajax(options1)
+    .done((res) => {
+      console.log(res)
+    })
+    window.location.href = '/notes.html'
+  })
+}
+
   const options = {
     contentType: 'application/json',
     dataType: 'json',
@@ -112,7 +129,25 @@ $(document).ready(function(){
   $.ajax(options)
   .done((res) => {
     for(let i = 0; i < res.length; i++){
-      $('.collapsible').append(addNote (res[i].title, res[i].textOnNotes, res[i].priority, 0))
+      $('.collapsible').append(addNote (res[i].title, res[i].textOnNotes, res[i].priority, 0, res[i].id))
+      addEdit()
     }
-  });
+  })
+
+  const options1 = {
+  contentType: 'application/json',
+  dataType: 'json',
+  type: 'GET',
+  url: '/image'
+}
+
+$.ajax(options1)
+  .done((data) => {
+    var imgPreview = document.getElementById('img-preview');
+    imgPreview.src = data[data.length-1].image_url;
+    console.log(data[0])
+  })
+  .fail(($xhr) => {
+    Materialize.toast($xhr.responseText, 3000);
+  })
 });

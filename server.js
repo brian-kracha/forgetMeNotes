@@ -22,6 +22,29 @@ app.use(express.static(path.join("public")));
 app.get('/',(req,res,next)=>{
   res.redirect('landing.html')
 })
+app.delete('/note/:id', function(req,res,next){
+  let catid = req.cookies.catID
+  let cookie = req.cookies
+  var decoded = jwt.verify(cookie.jwt, 'A4e2n84E0OpF3wW21', function(err, decoded) {
+   if(err){
+       console.log(err)
+   }else{
+       return decoded
+   }
+ })
+  let id = req.params.id
+  knex('notes').del()
+  .where('category_id', catid)
+  .andWhere('user_id', decoded.id)
+  .andWhere('id', id)
+  .then(function(notes){
+    console.log(notes);
+    res.send(notes)
+  })
+  .catch(function(err){
+    next(err)
+  })
+})
 
 app.post('/login', function (req, res, next){
   let data = req.body
